@@ -1,0 +1,4 @@
+root: ./
+structure:
+  readme: tenderize/README.md
+  summary: tenderize/SUMMARY.md

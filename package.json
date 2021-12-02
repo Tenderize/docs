@@ -1,0 +1,27 @@
+{
+  "name": "tenderize-docs",
+  "version": "0.0.1",
+  "author": "Nico Vergauwen <nico@tenderize.org>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tenderize/docs"
+  },
+  "engines": {
+    "npm": "^3.0.0"
+  },
+  "scripts": {
+    "postinstall": "doxygen --download"
+  },
+  "devDependencies": {
+    "doxygen": "0.3.2",
+    "solc": "0.8.4",
+    "solidity-docgen": "0.5.16",
+    "typedoc": "^0.17.8",
+    "typedoc-plugin-markdown": "^2.4.2",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "git": "^0.1.5",
+    "tender-core": "https://github.com/tenderize/tender-core"
+  }
+}
