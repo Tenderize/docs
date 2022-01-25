@@ -1,9 +1,11 @@
-TenderFarm is responsible for incetivizing liquidity providers, by accepting LP Tokens 
+TenderFarm is responsible for incetivizing liquidity providers, by accepting LP Tokens
 and a proportionaly rewarding them with TenderTokens over time.
 
 
 ## Functions:
+- [`initialize`](#itenderfarminitializecontractierc20contractitendertokencontractitenderizer)
 - [`farm`](#itenderfarmfarmuint256)
+- [`farmWithPermit`](#itenderfarmfarmwithpermituint256uint256uint8bytes32bytes32)
 - [`farmFor`](#itenderfarmfarmforaddressuint256)
 - [`unfarm`](#itenderfarmunfarmuint256)
 - [`harvest`](#itenderfarmharvest)
@@ -12,6 +14,7 @@ and a proportionaly rewarding them with TenderTokens over time.
 - [`stakeOf`](#itenderfarmstakeofaddress)
 - [`totalStake`](#itenderfarmtotalstake)
 - [`nextTotalStake`](#itenderfarmnexttotalstake)
+- [`setTenderizer`](#itenderfarmsettenderizercontractitenderizer)
 
 ## Events:
 - [`Farm`](#itenderfarmfarmaddressuint256)
@@ -21,6 +24,16 @@ and a proportionaly rewarding them with TenderTokens over time.
 
 
 ## Functions
+
+### `initialize` {#itenderfarminitializecontractierc20contractitendertokencontractitenderizer }
+
+```solidity
+  function initialize() external returns (bool)
+```
+
+No description
+
+
 
 ### `farm` {#itenderfarmfarmuint256 }
 
@@ -38,6 +51,32 @@ Note: '_amount' needs to be approved for the 'TenderFarm' to transfer. harvests 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
 |`_amount` | `uint256` | amount of liquidity pool tokens to stake|
+
+
+### `farmWithPermit` {#itenderfarmfarmwithpermituint256uint256uint8bytes32bytes32 }
+
+```solidity
+  function farmWithPermit(
+    uint256 _amount,
+    uint256 _deadline,
+    uint8 _v,
+    bytes32 _r,
+    bytes32 _s
+  ) external
+```
+
+allow spending token and stake liquidity pool tokens to receive rewards
+
+Note: '_amount' needs to be approved for the 'TenderFarm' to transfer. harvests current rewards before accounting updates are made. calls permit on LP Token. 
+#### Parameters:
+
+| Name | Type | Description                                                          |
+| :--- | :--- | :------------------------------------------------------------------- |
+|`_amount` | `uint256` | amount of liquidity pool tokens to stake |
+|`_deadline` | `uint256` | deadline of the permit |
+|`_v` | `uint8` | v of signed Permit message |
+|`_r` | `bytes32` | r of signed Permit message |
+|`_s` | `bytes32` | s of signed Permit message|
 
 
 ### `farmFor` {#itenderfarmfarmforaddressuint256 }
@@ -182,6 +221,24 @@ No description
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
 |`_nextTotalStake`| `` | - LP Tokens staked for next round|
+
+### `setTenderizer` {#itenderfarmsettenderizercontractitenderizer }
+
+```solidity
+  function setTenderizer(
+    contract ITenderizer _tenderizer
+  ) external
+```
+
+Changes the tenderizer of the contract
+
+
+#### Parameters:
+
+| Name | Type | Description                                                          |
+| :--- | :--- | :------------------------------------------------------------------- |
+|`_tenderizer` | `contract ITenderizer` | address of the new tenderizer|
+
 
 
 ## Events

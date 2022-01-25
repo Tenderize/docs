@@ -9,7 +9,7 @@ fs.rmdirSync('node_modules/tender-core/contracts/test',{ recursive: true, force:
 const args = [
     "node_modules/solidity-docgen/dist/cli.js",
     "--input=node_modules/tender-core/contracts", //\"test/!(mainnet)/**/*.ts\"
-    "--exclude=node_modules/tender_core/contracts/test/*.sol",
+    "--exclude=node_modules/tender-core/contracts/test/*.sol",
     "--output=tenderize-contracts",
     "--helpers=config/ethereum-smart-contracts/helpers.js",
     "--templates=config/ethereum-smart-contracts",
@@ -49,26 +49,25 @@ function clear(pathName) {
 }
 
 fs.rmdirSync("tenderize-contracts/libs",{ recursive: true, force: true })
-fs.rmdirSync("tenderize-contracts/test",{ recursive: true, force: true })
-fs.rmSync("tenderize-contracts/liquidity/LiquidityPoolToken.md")
-fs.rmSync("tenderize-contracts/liquidity/IERC20Decimals.md")
-fs.rmSync("tenderize-contracts/liquidity/ISwapRouterWithWETH.md")
-fs.rmSync("tenderize-contracts/liquidity/TenderFarm.md")
-fs.rmSync("tenderize-contracts/liquidity/UniswapPoolMock.md")
-fs.rmSync("tenderize-contracts/liquidity/UniswapRouterMock.md")
-fs.rmSync("tenderize-contracts/liquidity/TenderSwap.md")
-fs.rmSync("tenderize-contracts/liquidity/SwapUtils.md")
+// fs.rmdirSync("tenderize-contracts/test",{ recursive: true, force: true })
+fs.rmSync("tenderize-contracts/tenderswap/LiquidityPoolToken.md")
+fs.rmSync("tenderize-contracts/tenderswap/IERC20Decimals.md")
+fs.rmSync("tenderize-contracts/interfaces/ISwapRouterWithWETH.md")
+fs.rmSync("tenderize-contracts/tenderfarm/TenderFarm.md")
+fs.rmSync("tenderize-contracts/tenderfarm/TenderFarmFactory.md")
+fs.rmSync("tenderize-contracts/tenderswap/TenderSwap.md")
+fs.rmSync("tenderize-contracts/tenderswap/SwapUtils.md")
+fs.rmSync("tenderize-contracts/tenderswap/TenderSwapFactoryV1.md")
+fs.rmSync("tenderize-contracts/tenderswap/ITenderSwapFactory.md")
 fs.rmdirSync("tenderize-contracts/tenderizer/integrations",{ recursive: true, force: true })
 fs.rmSync("tenderize-contracts/tenderizer/Tenderizer.md")
 fs.rmSync("tenderize-contracts/tenderizer/ITotalStakedReader.md")
 fs.rmSync("tenderize-contracts/token/TenderToken.md")
-fs.rmSync("tenderize-contracts/token/IWETH.md")
-fs.rmSync("tenderize-contracts/token/WETHMock.md")
-fs.rmSync("tenderize-contracts/Registry.md")
-fs.rmSync("tenderize-contracts/TokenFaucet.md")
+fs.rmSync("tenderize-contracts/interfaces/IWETH.md")
+fs.rmdirSync("tenderize-contracts/helpers",{ recursive: true, force: true })
 
-fs.renameSync("tenderize-contracts/liquidity/ITenderFarm.md", "tenderize-contracts/liquidity/TenderFarm.md")
-fs.renameSync("tenderize-contracts/liquidity/ITenderSwap.md", "tenderize-contracts/liquidity/TenderSwap.md")
+fs.renameSync("tenderize-contracts/tenderfarm/ITenderFarm.md", "tenderize-contracts/tenderfarm/TenderFarm.md")
+fs.renameSync("tenderize-contracts/tenderswap/ITenderSwap.md", "tenderize-contracts/tenderswap/TenderSwap.md")
 fs.renameSync("tenderize-contracts/tenderizer/ITenderizer.md", "tenderize-contracts/tenderizer/Tenderizer.md")
 fs.renameSync("tenderize-contracts/token/ITenderToken.md", "tenderize-contracts/token/TenderToken.md")
 

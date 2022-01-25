@@ -2,11 +2,11 @@
 TenderSwap is a light-weight StableSwap implementation for two assets.
 See the Curve StableSwap paper for more details (https://curve.fi/files/stableswap-paper.pdf).
 that trade 1:1 with eachother (e.g. USD stablecoins or tenderToken derivatives vs their underlying assets).
-It supports Elastic Supply ERC20 tokens, which are tokens of which the balances can change 
+It supports Elastic Supply ERC20 tokens, which are tokens of which the balances can change
 as the total supply of the token 'rebases'.
 
 ## Functions:
-- [`initialize`](#itenderswapinitializecontractierc20contractierc20stringstringuint256uint256uint256address)
+- [`initialize`](#itenderswapinitializecontractierc20contractierc20stringstringuint256uint256uint256contractliquiditypooltoken)
 - [`lpToken`](#itenderswaplptoken)
 - [`getA`](#itenderswapgeta)
 - [`getAPrecise`](#itenderswapgetaprecise)
@@ -28,6 +28,7 @@ as the total supply of the token 'rebases'.
 - [`setSwapFee`](#itenderswapsetswapfeeuint256)
 - [`rampA`](#itenderswaprampauint256uint256)
 - [`stopRampA`](#itenderswapstoprampa)
+- [`transferOwnership`](#itenderswaptransferownershipaddress)
 
 ## Events:
 - [`Swap`](#itenderswapswapaddresscontractierc20uint256uint256)
@@ -43,7 +44,7 @@ as the total supply of the token 'rebases'.
 
 ## Functions
 
-### `initialize` {#itenderswapinitializecontractierc20contractierc20stringstringuint256uint256uint256address }
+### `initialize` {#itenderswapinitializecontractierc20contractierc20stringstringuint256uint256uint256contractliquiditypooltoken }
 
 ```solidity
   function initialize(
@@ -54,8 +55,8 @@ as the total supply of the token 'rebases'.
     uint256 _a,
     uint256 _fee,
     uint256 _adminFee,
-    address lpTokenTargetAddress
-  ) external returns (bool)
+    contract LiquidityPoolToken lpTokenTargetAddress
+  ) external returns (bool _success)
 ```
 
 Initializes this Swap contract with the given parameters.
@@ -76,13 +77,18 @@ only this contract is allowed to mint/burn tokens.
 |`_a` | `uint256` | the amplification coefficient * n * (n - 1). See the StableSwap paper for details |
 |`_fee` | `uint256` | default swap fee to be initialized with |
 |`_adminFee` | `uint256` | default adminFee to be initialized with |
-|`lpTokenTargetAddress` | `address` | the address of an existing LiquidityPoolToken contract to use as a target|
+|`lpTokenTargetAddress` | `contract LiquidityPoolToken` | the address of an existing LiquidityPoolToken contract to use as a target |
 
+#### Return Values:
+
+| Name                           | Type          | Description                                                                  |
+| :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
+|`_success`| `contract IERC20` | true is successfully initialized|
 
 ### `lpToken` {#itenderswaplptoken }
 
 ```solidity
-  function lpToken() external returns (contract LiquidityPoolToken)
+  function lpToken() external returns (contract LiquidityPoolToken lpToken)
 ```
 
 No description
@@ -92,7 +98,7 @@ No description
 ### `getA` {#itenderswapgeta }
 
 ```solidity
-  function getA() external returns (uint256)
+  function getA() external returns (uint256 _a)
 ```
 
 Return A, the amplification coefficient * n * (n - 1)
@@ -103,12 +109,12 @@ Note: See the StableSwap paper for details
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`A`| `` | parameter|
+|`_a`| `` | A parameter|
 
 ### `getAPrecise` {#itenderswapgetaprecise }
 
 ```solidity
-  function getAPrecise() external returns (uint256)
+  function getAPrecise() external returns (uint256 _aPrecise)
 ```
 
 Return A in its raw precision form
@@ -119,12 +125,12 @@ Note: See the StableSwap paper for details
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`A`| `` | parameter in its raw precision form|
+|`_aPrecise`| `` | A parameter in its raw precision form|
 
 ### `getToken0` {#itenderswapgettoken0 }
 
 ```solidity
-  function getToken0() external returns (contract IERC20)
+  function getToken0() external returns (contract IERC20 _token0)
 ```
 
 Returns the contract address for token0
@@ -135,12 +141,12 @@ Note: EVM return type is IERC20
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`token0`| `` | contract address|
+|`_token0`| `` | contract address|
 
 ### `getToken1` {#itenderswapgettoken1 }
 
 ```solidity
-  function getToken1() external returns (contract IERC20)
+  function getToken1() external returns (contract IERC20 _token1)
 ```
 
 Returns the contract address for token1
@@ -151,15 +157,15 @@ Note: EVM return type is IERC20
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`token1`| `` | contract address|
+|`_token1`| `` | contract address|
 
 ### `getToken0Balance` {#itenderswapgettoken0balance }
 
 ```solidity
-  function getToken0Balance() external returns (uint256)
+  function getToken0Balance() external returns (uint256 _token0Balance)
 ```
 
-Return current balance of token0 in the pool
+Return current balance of token0 (tender) in the pool
 
 
 
@@ -167,15 +173,15 @@ Return current balance of token0 in the pool
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`current`| `` | balance of the pooled token|
+|`_token0Balance`| `` | current balance of the pooled tendertoken|
 
 ### `getToken1Balance` {#itenderswapgettoken1balance }
 
 ```solidity
-  function getToken1Balance() external returns (uint256)
+  function getToken1Balance() external returns (uint256 _token1Balance)
 ```
 
-Return current balance of token1 in the pool
+Return current balance of token1 (underlying) in the pool
 
 
 
@@ -183,12 +189,12 @@ Return current balance of token1 in the pool
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`current`| `` | balance of the pooled token|
+|`_token1Balance`| `` | current balance of the pooled underlying token|
 
 ### `getVirtualPrice` {#itenderswapgetvirtualprice }
 
 ```solidity
-  function getVirtualPrice() external returns (uint256)
+  function getVirtualPrice() external returns (uint256 _virtualPrice)
 ```
 
 Get the override price, to help calculate profit
@@ -199,7 +205,7 @@ Get the override price, to help calculate profit
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`the`| `` | override price, scaled to the POOL_PRECISION_DECIMALS|
+|`_virtualPrice`| `` | the override price, scaled to the POOL_PRECISION_DECIMALS|
 
 ### `calculateSwap` {#itenderswapcalculateswapcontractierc20uint256 }
 
@@ -207,7 +213,7 @@ Get the override price, to help calculate profit
   function calculateSwap(
     contract IERC20 _tokenFrom,
     uint256 _dx
-  ) external returns (uint256)
+  ) external returns (uint256 _tokensToReceive)
 ```
 
 Calculate amount of tokens you receive on swap
@@ -224,14 +230,14 @@ Calculate amount of tokens you receive on swap
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `contract IERC20` | of tokens the user will receive|
+|`_tokensToReceive`| `contract IERC20` | amount of tokens the user will receive|
 
 ### `calculateRemoveLiquidity` {#itenderswapcalculateremoveliquidityuint256 }
 
 ```solidity
   function calculateRemoveLiquidity(
     uint256 amount
-  ) external returns (uint256[2])
+  ) external returns (uint256[2] _tokensToReceive)
 ```
 
 A simple method to calculate amount of each underlying
@@ -248,7 +254,7 @@ tokens that is returned upon burning given amount of LP tokens
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`array`| `uint256` | of token balances that the user will receive|
+|`_tokensToReceive`| `uint256` | array of token balances that the user will receive|
 
 ### `calculateRemoveLiquidityOneToken` {#itenderswapcalculateremoveliquidityonetokenuint256contractierc20 }
 
@@ -256,7 +262,7 @@ tokens that is returned upon burning given amount of LP tokens
   function calculateRemoveLiquidityOneToken(
     uint256 tokenAmount,
     contract IERC20 tokenReceive
-  ) external returns (uint256 availableTokenAmount)
+  ) external returns (uint256 _tokensToReceive)
 ```
 
 Calculate the amount of underlying token available to withdraw
@@ -274,7 +280,7 @@ when withdrawing via only single token
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`availableTokenAmount`| `uint256` | calculated amount of underlying token available to withdraw|
+|`_tokensToReceive`| `uint256` | calculated amount of underlying token to be received. available to withdraw|
 
 ### `calculateTokenAmount` {#itenderswapcalculatetokenamountuint256bool }
 
@@ -282,7 +288,7 @@ when withdrawing via only single token
   function calculateTokenAmount(
     uint256[] amounts,
     bool deposit
-  ) external returns (uint256)
+  ) external returns (uint256 _tokensToReceive)
 ```
 
 A simple method to calculate prices from deposits or
@@ -296,14 +302,14 @@ Note: This shouldn't be used outside frontends for user estimates.
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`amounts` | `uint256[]` | an array of token amounts to deposit or withdrawal, corresponding to pool cardinality of [token0, token1]. The amount should be in each pooled token's native precision.  |
+|`amounts` | `uint256[]` | an array of token amounts to deposit or withdrawal, corresponding to pool cardinality of [token0, token1]. The amount should be in each pooled token's native precision. |
 |`deposit` | `bool` | whether this is a deposit or a withdrawal |
 
 #### Return Values:
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`token`| `uint256[]` | amount the user will receive|
+|`_tokensToReceive`| `uint256[]` | token amount the user will receive|
 
 ### `swap` {#itenderswapswapcontractierc20uint256uint256uint256 }
 
@@ -313,7 +319,7 @@ Note: This shouldn't be used outside frontends for user estimates.
     uint256 _dx,
     uint256 _minDy,
     uint256 _deadline
-  ) external returns (uint256)
+  ) external returns (uint256 _dy)
 ```
 
 Swap two tokens using this pool
@@ -326,8 +332,13 @@ Note: revert is token being sold is not in the pool.
 |`_tokenFrom` | `contract IERC20` | the token the user wants to sell |
 |`_dx` | `uint256` | the amount of tokens the user wants to swap from |
 |`_minDy` | `uint256` | the min amount the user would like to receive, or revert |
-|`_deadline` | `uint256` | latest timestamp to accept this transaction|
+|`_deadline` | `uint256` | latest timestamp to accept this transaction |
 
+#### Return Values:
+
+| Name                           | Type          | Description                                                                  |
+| :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
+|`_dy`| `contract IERC20` | amount of tokens received|
 
 ### `addLiquidity` {#itenderswapaddliquidityuint2562uint256uint256 }
 
@@ -336,7 +347,7 @@ Note: revert is token being sold is not in the pool.
     uint256[2] _amounts,
     uint256 _minToMint,
     uint256 _deadline
-  ) external returns (uint256)
+  ) external returns (uint256 _lpMinted)
 ```
 
 Add liquidity to the pool with the given amounts of tokens
@@ -346,7 +357,7 @@ Add liquidity to the pool with the given amounts of tokens
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`_amounts` | `uint256[2]` | the amounts of each token to add, in their native precision           according to the cardinality of the pool [token0, token1] |
+|`_amounts` | `uint256[2]` | the amounts of each token to add, in their native precision          according to the cardinality of the pool [token0, token1] |
 |`_minToMint` | `uint256` | the minimum LP tokens adding this amount of liquidity should mint, otherwise revert. Handy for front-running mitigation |
 |`_deadline` | `uint256` | latest timestamp to accept this transaction |
 
@@ -354,7 +365,7 @@ Add liquidity to the pool with the given amounts of tokens
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `uint256[2]` | of LP token user minted and received|
+|`_lpMinted`| `uint256[2]` | amount of LP token user minted and received|
 
 ### `removeLiquidity` {#itenderswapremoveliquidityuint256uint2562uint256 }
 
@@ -363,7 +374,7 @@ Add liquidity to the pool with the given amounts of tokens
     uint256 amount,
     uint256[2] minAmounts,
     uint256 deadline
-  ) external returns (uint256[2] amountsReceived)
+  ) external returns (uint256[2] _tokensReceived)
 ```
 
 Burn LP tokens to remove liquidity from the pool.
@@ -381,7 +392,7 @@ Note: Liquidity can always be removed, even when the pool is paused.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amountsReceived`| `uint256` | is the amounts of tokens user received|
+|`_tokensReceived`| `uint256` | is the amounts of tokens user received|
 
 ### `removeLiquidityOneToken` {#itenderswapremoveliquidityonetokenuint256contractierc20uint256uint256 }
 
@@ -391,7 +402,7 @@ Note: Liquidity can always be removed, even when the pool is paused.
     contract IERC20 _tokenReceive,
     uint256 _minAmount,
     uint256 _deadline
-  ) external returns (uint256)
+  ) external returns (uint256 _tokensReceived)
 ```
 
 Remove liquidity from the pool all in one token.
@@ -410,7 +421,7 @@ Remove liquidity from the pool all in one token.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `uint256` | of chosen token user received|
+|`_tokensReceived`| `uint256` | amount of chosen token user received|
 
 ### `removeLiquidityImbalance` {#itenderswapremoveliquidityimbalanceuint2562uint256uint256 }
 
@@ -419,7 +430,7 @@ Remove liquidity from the pool all in one token.
     uint256[2] _amounts,
     uint256 _maxBurnAmount,
     uint256 _deadline
-  ) external returns (uint256)
+  ) external returns (uint256 _lpBurned)
 ```
 
 Remove liquidity from the pool, weighted differently than the
@@ -439,7 +450,7 @@ over period of 4 weeks since last deposit will apply.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `uint256[2]` | of LP tokens burned|
+|`_lpBurned`| `uint256[2]` | amount of LP tokens burned|
 
 ### `setAdminFee` {#itenderswapsetadminfeeuint256 }
 
@@ -507,6 +518,24 @@ the limit range.
 
 Stop ramping A immediately. Reverts if ramp A is already stopped.
 
+
+
+### `transferOwnership` {#itenderswaptransferownershipaddress }
+
+```solidity
+  function transferOwnership(
+    address _newOwner
+  ) external
+```
+
+Changes the owner of the contract
+
+
+#### Parameters:
+
+| Name | Type | Description                                                          |
+| :--- | :--- | :------------------------------------------------------------------- |
+|`_newOwner` | `address` | address of the new owner|
 
 
 
