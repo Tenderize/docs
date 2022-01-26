@@ -4,10 +4,11 @@ while also keeping track of user depsotis/withdrawals and protocol fees.
 New implementations are required to inherit this contract and override any required internal functions.
 
 ## Functions:
-- [`deposit`](#itenderizerdepositaddressuint256)
+- [`deposit`](#itenderizerdeposituint256)
+- [`depositWithPermit`](#itenderizerdepositwithpermituint256uint256uint8bytes32bytes32)
 - [`stake`](#itenderizerstakeaddressuint256)
-- [`unstake`](#itenderizerunstakeaddressuint256)
-- [`withdraw`](#itenderizerwithdrawaddressuint256)
+- [`unstake`](#itenderizerunstakeuint256)
+- [`withdraw`](#itenderizerwithdrawuint256)
 - [`claimRewards`](#itenderizerclaimrewards)
 - [`collectFees`](#itenderizercollectfees)
 - [`collectLiquidityFees`](#itenderizercollectliquidityfees)
@@ -15,19 +16,22 @@ New implementations are required to inherit this contract and override any requi
 - [`calcDepositOut`](#itenderizercalcdepositoutuint256)
 - [`pendingFees`](#itenderizerpendingfees)
 - [`pendingLiquidityFees`](#itenderizerpendingliquidityfees)
-- [`setController`](#itenderizersetcontrolleraddress)
+- [`execute`](#itenderizerexecuteaddressuint256bytes)
+- [`batchExecute`](#itenderizerbatchexecuteaddressuint256bytes)
+- [`setGov`](#itenderizersetgovaddress)
 - [`setNode`](#itenderizersetnodeaddress)
 - [`setSteak`](#itenderizersetsteakcontractierc20)
 - [`setProtocolFee`](#itenderizersetprotocolfeeuint256)
 - [`setLiquidityFee`](#itenderizersetliquidityfeeuint256)
 - [`setStakingContract`](#itenderizersetstakingcontractaddress)
+- [`setTenderFarm`](#itenderizersettenderfarmcontractitenderfarm)
 
 ## Events:
 - [`Deposit`](#itenderizerdepositaddressuint256)
 - [`Stake`](#itenderizerstakeaddressuint256)
 - [`Unstake`](#itenderizerunstakeaddressaddressuint256uint256)
 - [`Withdraw`](#itenderizerwithdrawaddressuint256uint256)
-- [`RewardsClaimed`](#itenderizerrewardsclaimeduint256uint256uint256)
+- [`RewardsClaimed`](#itenderizerrewardsclaimedint256uint256uint256)
 - [`ProtocolFeeCollected`](#itenderizerprotocolfeecollecteduint256)
 - [`LiquidityFeeCollected`](#itenderizerliquidityfeecollecteduint256)
 - [`GovernanceUpdate`](#itenderizergovernanceupdatestring)
@@ -35,24 +39,48 @@ New implementations are required to inherit this contract and override any requi
 
 ## Functions
 
-### `deposit` {#itenderizerdepositaddressuint256 }
+### `deposit` {#itenderizerdeposituint256 }
 
 ```solidity
   function deposit(
-    address _from,
     uint256 _amount
   ) external
 ```
 
 Deposit tokens in Tenderizer.
 
-Note: only callable by Controller. doesn't actually stakes the tokens but aggregates the balance in the tenderizer awaiting to be staked. requires '_amount' to be approved by '_from'.
+Note: doesn't actually stakes the tokens but aggregates the balance in the tenderizer awaiting to be staked. requires '_amount' to be approved by '_from'.
 #### Parameters:
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`_from` | `address` | account that deposits |
 |`_amount` | `uint256` | amount deposited |
+
+
+### `depositWithPermit` {#itenderizerdepositwithpermituint256uint256uint8bytes32bytes32 }
+
+```solidity
+  function depositWithPermit(
+    uint256 _amount,
+    uint256 _deadline,
+    uint8 _v,
+    bytes32 _r,
+    bytes32 _s
+  ) external
+```
+
+Deposit tokens in Tenderizer with permit.
+
+Note: doesn't actually stakes the tokens but aggregates the balance in the tenderizer awaiting to be staked. requires '_amount' to be approved by '_from'.
+#### Parameters:
+
+| Name | Type | Description                                                          |
+| :--- | :--- | :------------------------------------------------------------------- |
+|`_amount` | `uint256` | amount deposited |
+|`_deadline` | `uint256` | deadline for the permit |
+|`_v` | `uint8` | from ECDSA signature |
+|`_r` | `bytes32` | from ECDSA signature |
+|`_s` | `bytes32` | from ECDSA signature |
 
 
 ### `stake` {#itenderizerstakeaddressuint256 }
@@ -66,7 +94,7 @@ Note: only callable by Controller. doesn't actually stakes the tokens but aggreg
 
 Stake '_amount' of tokens to '_node'.
 
-Note: If '_node' is not specified, stake towards the default address. If '_amount' is 0, stake the entire current token balance of the Tenderizer. Only callable by controller.
+Note: If '_node' is not specified, stake towards the default address. If '_amount' is 0, stake the entire current token balance of the Tenderizer. Only callable by Gov.
 #### Parameters:
 
 | Name | Type | Description                                                          |
@@ -75,44 +103,45 @@ Note: If '_node' is not specified, stake towards the default address. If '_amoun
 |`_amount` | `uint256` | amount to stake |
 
 
-### `unstake` {#itenderizerunstakeaddressuint256 }
+### `unstake` {#itenderizerunstakeuint256 }
 
 ```solidity
   function unstake(
-    address _account,
     uint256 _amount
-  ) external returns (uint256 unstakeLockID)
+  ) external returns (uint256 _unstakeLockID)
 ```
 
 Unstake '_amount' of tokens from '_account'.
 
-Note: If '_account' is not specified, stake towards the default address. If '_amount' is 0, unstake the entire amount staked towards _account. Only callable by controller.
+Note: unstake from the default address. If '_amount' is 0, unstake the entire amount staked towards _account.
 #### Parameters:
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`_account` | `address` | account to unstake from in the underlying protocol |
 |`_amount` | `uint256` | amount to unstake |
 
+#### Return Values:
 
-### `withdraw` {#itenderizerwithdrawaddressuint256 }
+| Name                           | Type          | Description                                                                  |
+| :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
+|`_unstakeLockID`| `uint256` | unstake lockID generated for unstake |
+
+### `withdraw` {#itenderizerwithdrawuint256 }
 
 ```solidity
   function withdraw(
-    address _unstakeLockID,
-    uint256 _account
+    uint256 _unstakeLockID
   ) external
 ```
 
 Withdraw '_amount' of tokens previously unstaked by '_account'.
 
-Note: If '_amount' isn't specified all unstake tokens by '_account' will be withdrawn. Requires '_account' to have unstaked prior to calling withdraw. Only callable by controller.
+Note: If '_amount' isn't specified all unstake tokens by '_account' will be withdrawn. Requires '_account' to have unstaked prior to calling withdraw.
 #### Parameters:
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`_unstakeLockID` | `address` | ID for the lock to request the withdraw for |
-|`_account` | `uint256` | account requesting the withdrawam |
+|`_unstakeLockID` | `uint256` | ID for the lock to request the withdraw for |
 
 
 ### `claimRewards` {#itenderizerclaimrewards }
@@ -121,15 +150,16 @@ Note: If '_amount' isn't specified all unstake tokens by '_account' will be with
   function claimRewards() external
 ```
 
-Claim staking rewards for the underlying protocol.
+Compound all the rewards and new deposits.
+Claim staking rewards and earned fees for the underlying protocol and stake
+any leftover token balance. Process Tender protocol fees if revenue is positive.
 
-Note: Only callable by controller.
 
 
 ### `collectFees` {#itenderizercollectfees }
 
 ```solidity
-  function collectFees() external returns (uint256)
+  function collectFees() external returns (uint256 _feesCollected)
 ```
 
 Collect fees pulls any pending governance fees from the Tenderizer to the governance treasury.
@@ -140,12 +170,12 @@ Note: Resets pendingFees. Fees claimed are added to total staked.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`Amount`| `` | of protocol fees collected |
+|`_feesCollected`| `` | Amount of protocol fees collected |
 
 ### `collectLiquidityFees` {#itenderizercollectliquidityfees }
 
 ```solidity
-  function collectLiquidityFees() external returns (uint256)
+  function collectLiquidityFees() external returns (uint256 _liquidtyFeesCollected)
 ```
 
 Collect Liquidity fees pulls any pending LP fees from the Tenderizer to TenderFarm.
@@ -156,12 +186,12 @@ Note: Resets pendingFees. Fees claimed are added to total staked.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`Amount`| `` | of liquidity fees collected |
+|`_liquidtyFeesCollected`| `` | Amount of liquidity fees collected |
 
 ### `totalStakedTokens` {#itenderizertotalstakedtokens }
 
 ```solidity
-  function totalStakedTokens() external returns (uint256)
+  function totalStakedTokens() external returns (uint256 _stakedTokens)
 ```
 
 Total Staked Tokens returns the total amount of underlying tokens staked by this Tenderizer.
@@ -172,23 +202,28 @@ Total Staked Tokens returns the total amount of underlying tokens staked by this
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`total`| `` | amount staked by this Tenderizer|
+|`_stakedTokens`| `` | total amount staked by this Tenderizer|
 
 ### `calcDepositOut` {#itenderizercalcdepositoutuint256 }
 
 ```solidity
-  function calcDepositOut() external returns (uint256)
+  function calcDepositOut() external returns (uint256 _depositOut)
 ```
 
 Returns the number of tenderTokens to be minted for amountIn deposit.
 
-Note: used by controller to calculate tokens to be minted before depositing.
+Note: used by controller to calculate tokens to be minted before depositing. to be used when there a delegation tax is deducted, for eg. in Graph.
 
+#### Return Values:
+
+| Name                           | Type          | Description                                                                  |
+| :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
+|`_depositOut`| `uint256` | number of tokens staked for depositIn. |
 
 ### `pendingFees` {#itenderizerpendingfees }
 
 ```solidity
-  function pendingFees() external returns (uint256)
+  function pendingFees() external returns (uint256 _pendingFees)
 ```
 
 No description
@@ -198,17 +233,61 @@ No description
 ### `pendingLiquidityFees` {#itenderizerpendingliquidityfees }
 
 ```solidity
-  function pendingLiquidityFees() external returns (uint256)
+  function pendingLiquidityFees() external returns (uint256 _pendingLiquidityFees)
 ```
 
 No description
 
 
 
-### `setController` {#itenderizersetcontrolleraddress }
+### `execute` {#itenderizerexecuteaddressuint256bytes }
 
 ```solidity
-  function setController() external
+  function execute(
+    address _target,
+    uint256 _value,
+    bytes _data
+  ) external
+```
+
+Exectutes a transaction on behalf of the controller.
+
+Note: only callable by owner(gov).
+#### Parameters:
+
+| Name | Type | Description                                                          |
+| :--- | :--- | :------------------------------------------------------------------- |
+|`_target` | `address` | target address for the contract call |
+|`_value` | `uint256` | ether value to be transeffered with the transaction |
+|`_data` | `bytes` | call data - check ethers.interface.encodeFunctionData() |
+
+
+### `batchExecute` {#itenderizerbatchexecuteaddressuint256bytes }
+
+```solidity
+  function batchExecute(
+    address[] _targets,
+    uint256[] _values,
+    bytes[] _datas
+  ) external
+```
+
+Exectutes a batch of transaction on behalf of the controller.
+
+Note: Every target to its value, data via it's corresponding index. only callable by owner(gov).
+#### Parameters:
+
+| Name | Type | Description                                                          |
+| :--- | :--- | :------------------------------------------------------------------- |
+|`_targets` | `address[]` | array of target addresses for the contract call |
+|`_values` | `uint256[]` | array of ether values to be transeffered with the transactions |
+|`_datas` | `bytes[]` | array of call datas - check ethers.interface.encodeFunctionData() |
+
+
+### `setGov` {#itenderizersetgovaddress }
+
+```solidity
+  function setGov() external
 ```
 
 No description
@@ -265,6 +344,16 @@ No description
 
 
 
+### `setTenderFarm` {#itenderizersettenderfarmcontractitenderfarm }
+
+```solidity
+  function setTenderFarm() external
+```
+
+No description
+
+
+
 
 ## Events
 
@@ -308,7 +397,7 @@ No description
 
 No description
 
-### `RewardsClaimed` {#itenderizerrewardsclaimeduint256uint256uint256 }
+### `RewardsClaimed` {#itenderizerrewardsclaimedint256uint256uint256 }
 
 ```solidity
   event RewardsClaimed(
