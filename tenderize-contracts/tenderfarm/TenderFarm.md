@@ -132,7 +132,7 @@ Note: reverts when trying to harvest multiple times if no new rewards have been 
 
 ```solidity
   function addRewards(
-    uint256 amount
+    uint256 _amount
   ) external
 ```
 
@@ -143,7 +143,7 @@ Note: will 'start' a new 'epoch'. only callable by owner.
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`amount` | `uint256` | amount of reward tokens to add|
+|`_amount` | `uint256` | amount of reward tokens to add|
 
 
 ### `availableRewards` {#itenderfarmavailablerewardsaddress }
@@ -154,20 +154,20 @@ Note: will 'start' a new 'epoch'. only callable by owner.
   ) external returns (uint256 amount)
 ```
 
-Check available rewards for an address.
+Check available rewards for an account.
 
 
 #### Parameters:
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`_for` | `address` | address |
+|`_for` | `address` | address address of the account to check rewards for. |
 
 #### Return Values:
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `address` | rewards for address|
+|`amount`| `address` | rewards for the provided account address.|
 
 ### `stakeOf` {#itenderfarmstakeofaddress }
 
@@ -177,14 +177,14 @@ Check available rewards for an address.
   ) external returns (uint256 amount)
 ```
 
-Check stake for an address.
+Check stake for an account.
 
 
 #### Parameters:
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`_of` | `address` | address |
+|`_of` | `address` | address address of the account to check stake for. |
 
 #### Return Values:
 
@@ -195,32 +195,35 @@ Check stake for an address.
 ### `totalStake` {#itenderfarmtotalstake }
 
 ```solidity
-  function totalStake() external returns (uint256 _totalStake)
+  function totalStake() external returns (uint256 stake)
 ```
 
-No description
+Return the total amount of LP tokens staked in this farm.
+
 
 
 #### Return Values:
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_totalStake`| `` | -  total amount of LP tokens staked|
+|`stake`| `` | total amount of LP tokens staked|
 
 ### `nextTotalStake` {#itenderfarmnexttotalstake }
 
 ```solidity
-  function nextTotalStake() external returns (uint256 _nextTotalStake)
+  function nextTotalStake() external returns (uint256 nextStake)
 ```
 
-No description
+Return the total amount of LP tokens staked
+for the next reward epoch.
+
 
 
 #### Return Values:
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_nextTotalStake`| `` | - LP Tokens staked for next round|
+|`nextStake`| `` | LP Tokens staked for next round|
 
 ### `setTenderizer` {#itenderfarmsettenderizercontractitenderizer }
 

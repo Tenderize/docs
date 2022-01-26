@@ -1279,7 +1279,7 @@ tar-stream@^1.5.2:
 
 "tender-core@https://github.com/tenderize/tender-core":
   version "0.1.0"
-  resolved "https://github.com/tenderize/tender-core#529d721e2a34ad3fd138c8a196a112207d4fcf0a"
+  resolved "https://github.com/tenderize/tender-core#4a4d98211725fa0987037f93308a1031d4ef407a"
   dependencies:
     "@openzeppelin/contracts" "^4.0.0"
     "@openzeppelin/contracts-upgradeable" "^4.3.3"

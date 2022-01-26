@@ -88,12 +88,18 @@ only this contract is allowed to mint/burn tokens.
 ### `lpToken` {#itenderswaplptoken }
 
 ```solidity
-  function lpToken() external returns (contract LiquidityPoolToken _lpToken)
+  function lpToken() external returns (contract LiquidityPoolToken lpTokenContract)
 ```
 
-No description
+Returns the liquidity pool token contract.
 
 
+
+#### Return Values:
+
+| Name                           | Type          | Description                                                                  |
+| :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
+|`lpTokenContract`| `` | Liquidity pool token contract.|
 
 ### `getA` {#itenderswapgeta }
 
@@ -109,7 +115,7 @@ Note: See the StableSwap paper for details
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`a`| `` | A parameter|
+|`a`| `` | the amplifaction coefficient|
 
 ### `getAPrecise` {#itenderswapgetaprecise }
 

@@ -50,7 +50,6 @@ function clear(pathName) {
 
 fs.rmdirSync("tenderize-contracts/libs",{ recursive: true, force: true })
 // fs.rmdirSync("tenderize-contracts/test",{ recursive: true, force: true })
-fs.rmSync("tenderize-contracts/tenderswap/LiquidityPoolToken.md")
 fs.rmSync("tenderize-contracts/tenderswap/IERC20Decimals.md")
 fs.rmSync("tenderize-contracts/interfaces/ISwapRouterWithWETH.md")
 fs.rmSync("tenderize-contracts/tenderfarm/TenderFarm.md")

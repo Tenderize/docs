@@ -159,7 +159,7 @@ any leftover token balance. Process Tender protocol fees if revenue is positive.
 ### `collectFees` {#itenderizercollectfees }
 
 ```solidity
-  function collectFees() external returns (uint256 feesCollected)
+  function collectFees() external returns (uint256 amount)
 ```
 
 Collect fees pulls any pending governance fees from the Tenderizer to the governance treasury.
@@ -170,12 +170,12 @@ Note: Resets pendingFees. Fees claimed are added to total staked.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`feesCollected`| `` | Amount of protocol fees collected |
+|`amount`| `` | Amount of protocol fees collected |
 
 ### `collectLiquidityFees` {#itenderizercollectliquidityfees }
 
 ```solidity
-  function collectLiquidityFees() external returns (uint256 liquidtyFeesCollected)
+  function collectLiquidityFees() external returns (uint256 amount)
 ```
 
 Collect Liquidity fees pulls any pending LP fees from the Tenderizer to TenderFarm.
@@ -186,12 +186,12 @@ Note: Resets pendingFees. Fees claimed are added to total staked.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`liquidtyFeesCollected`| `` | Amount of liquidity fees collected |
+|`amount`| `` | Amount of liquidity fees collected |
 
 ### `totalStakedTokens` {#itenderizertotalstakedtokens }
 
 ```solidity
-  function totalStakedTokens() external returns (uint256 _totalStakedTokens)
+  function totalStakedTokens() external returns (uint256 totalStaked)
 ```
 
 Total Staked Tokens returns the total amount of underlying tokens staked by this Tenderizer.
@@ -202,7 +202,7 @@ Total Staked Tokens returns the total amount of underlying tokens staked by this
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_totalStakedTokens`| `` | total amount staked by this Tenderizer|
+|`totalStaked`| `` | total amount staked by this Tenderizer|
 
 ### `calcDepositOut` {#itenderizercalcdepositoutuint256 }
 
@@ -218,37 +218,39 @@ Note: used by controller to calculate tokens to be minted before depositing. to 
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`depositOut`| `uint256` | number of tokens staked for depositIn. |
+|`depositOut`| `uint256` | number of tokens staked for `amountIn`. |
 
 ### `pendingFees` {#itenderizerpendingfees }
 
 ```solidity
-  function pendingFees() external returns (uint256 _pendingFees)
+  function pendingFees() external returns (uint256 amount)
 ```
 
-No description
+Returns the amount of pending protocool fees since last claiming..
+
 
 
 #### Return Values:
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_pendingFees`| `` | amount of fees pending since last claim|
+|`amount`| `` | the amount of fees pending since last claim|
 
 ### `pendingLiquidityFees` {#itenderizerpendingliquidityfees }
 
 ```solidity
-  function pendingLiquidityFees() external returns (uint256 _pendingLiquidityFees)
+  function pendingLiquidityFees() external returns (uint256 amount)
 ```
 
-No description
+Returns the amount of pending liquidity provider fees since last claiming.
+
 
 
 #### Return Values:
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_pendingLiquidityFees`| `` | amount of liqudity fees pending since last claim|
+|`amount`| `` | the amount of liqudity fees pending since last claim|
 
 ### `execute` {#itenderizerexecuteaddressuint256bytes }
 
