@@ -52,9 +52,9 @@ Note: {{{removeNewLines natspec.devdoc}}}{{/if}}
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-{{#natspec.returns}}
-|`{{param}}`| `{{#lookup ../args.types @index}}{{/lookup}}` | {{{removeNewLines description}}}|
-{{/natspec.returns}}{{/if}}
+{{#outputs}}
+|`{{name}}`| `{{type}}` | {{#with (lookup ../natspec.returns @index)}}{{removeNewLines description}}{{/with}} |
+{{/outputs}}{{/if}}
 {{/if}}
 {{/ownFunctions}}
 
@@ -65,9 +65,9 @@ Note: {{{removeNewLines natspec.devdoc}}}{{/if}}
 
 ```solidity
   event {{name}}(
-    {{#natspec.params}}
-    {{#lookup ../args.types @index}}{{/lookup}} {{param}}{{#if @last}}{{else}},{{/if}}
-    {{/natspec.params}}
+    {{#members}}
+    {{type}} {{param}}{{#if @last}}{{else}},{{/if}}
+    {{/members}}
   )
 ```
 

@@ -83,7 +83,7 @@ only this contract is allowed to mint/burn tokens.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`success`| `contract IERC20` | true is successfully initialized|
+|`success`| `bool` | true is successfully initialized |
 
 ### `lpToken` {#itenderswaplptoken }
 
@@ -99,7 +99,7 @@ Returns the liquidity pool token contract.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`lpTokenContract`| `` | Liquidity pool token contract.|
+|`lpTokenContract`| `contract LiquidityPoolToken` | Liquidity pool token contract. |
 
 ### `getA` {#itenderswapgeta }
 
@@ -115,7 +115,7 @@ Note: See the StableSwap paper for details
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`a`| `` | the amplifaction coefficient|
+|`a`| `uint256` | the amplifaction coefficient |
 
 ### `getAPrecise` {#itenderswapgetaprecise }
 
@@ -131,7 +131,7 @@ Note: See the StableSwap paper for details
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`aPrecise`| `` | A parameter in its raw precision form|
+|`aPrecise`| `uint256` | A parameter in its raw precision form |
 
 ### `getToken0` {#itenderswapgettoken0 }
 
@@ -147,7 +147,7 @@ Note: EVM return type is IERC20
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`token0`| `` | contract address|
+|`token0`| `contract IERC20` | contract address |
 
 ### `getToken1` {#itenderswapgettoken1 }
 
@@ -163,7 +163,7 @@ Note: EVM return type is IERC20
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`token1`| `` | contract address|
+|`token1`| `contract IERC20` | contract address |
 
 ### `getToken0Balance` {#itenderswapgettoken0balance }
 
@@ -179,7 +179,7 @@ Return current balance of token0 (tender) in the pool
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`token0Balance`| `` | current balance of the pooled tendertoken|
+|`token0Balance`| `uint256` | current balance of the pooled tendertoken |
 
 ### `getToken1Balance` {#itenderswapgettoken1balance }
 
@@ -195,7 +195,7 @@ Return current balance of token1 (underlying) in the pool
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`token1Balance`| `` | current balance of the pooled underlying token|
+|`token1Balance`| `uint256` | current balance of the pooled underlying token |
 
 ### `getVirtualPrice` {#itenderswapgetvirtualprice }
 
@@ -211,7 +211,7 @@ Get the override price, to help calculate profit
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`virtualPrice`| `` | the override price, scaled to the POOL_PRECISION_DECIMALS|
+|`virtualPrice`| `uint256` | the override price, scaled to the POOL_PRECISION_DECIMALS |
 
 ### `calculateSwap` {#itenderswapcalculateswapcontractierc20uint256 }
 
@@ -236,7 +236,7 @@ Calculate amount of tokens you receive on swap
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`tokensToReceive`| `contract IERC20` | amount of tokens the user will receive|
+|`tokensToReceive`| `uint256` | amount of tokens the user will receive |
 
 ### `calculateRemoveLiquidity` {#itenderswapcalculateremoveliquidityuint256 }
 
@@ -260,7 +260,7 @@ tokens that is returned upon burning given amount of LP tokens
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`tokensToReceive`| `uint256` | array of token balances that the user will receive|
+|`tokensToReceive`| `uint256[2]` | array of token balances that the user will receive |
 
 ### `calculateRemoveLiquidityOneToken` {#itenderswapcalculateremoveliquidityonetokenuint256contractierc20 }
 
@@ -286,7 +286,7 @@ when withdrawing via only single token
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`tokensToReceive`| `uint256` | calculated amount of underlying token to be received. available to withdraw|
+|`tokensToReceive`| `uint256` | calculated amount of underlying token to be received. available to withdraw |
 
 ### `calculateTokenAmount` {#itenderswapcalculatetokenamountuint256bool }
 
@@ -315,7 +315,7 @@ Note: This shouldn't be used outside frontends for user estimates.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`tokensToReceive`| `uint256[]` | token amount the user will receive|
+|`tokensToReceive`| `uint256` | token amount the user will receive |
 
 ### `swap` {#itenderswapswapcontractierc20uint256uint256uint256 }
 
@@ -344,7 +344,7 @@ Note: revert is token being sold is not in the pool.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_dy`| `contract IERC20` | amount of tokens received|
+|`_dy`| `uint256` | amount of tokens received |
 
 ### `addLiquidity` {#itenderswapaddliquidityuint2562uint256uint256 }
 
@@ -371,7 +371,7 @@ Add liquidity to the pool with the given amounts of tokens
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`lpMinted`| `uint256[2]` | amount of LP token user minted and received|
+|`lpMinted`| `uint256` | amount of LP token user minted and received |
 
 ### `removeLiquidity` {#itenderswapremoveliquidityuint256uint2562uint256 }
 
@@ -398,7 +398,7 @@ Note: Liquidity can always be removed, even when the pool is paused.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`tokensReceived`| `uint256` | is the amounts of tokens user received|
+|`tokensReceived`| `uint256[2]` | is the amounts of tokens user received |
 
 ### `removeLiquidityOneToken` {#itenderswapremoveliquidityonetokenuint256contractierc20uint256uint256 }
 
@@ -427,7 +427,7 @@ Remove liquidity from the pool all in one token.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`tokensReceived`| `uint256` | amount of chosen token user received|
+|`tokensReceived`| `uint256` | amount of chosen token user received |
 
 ### `removeLiquidityImbalance` {#itenderswapremoveliquidityimbalanceuint2562uint256uint256 }
 
@@ -456,7 +456,7 @@ over period of 4 weeks since last deposit will apply.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`lpBurned`| `uint256[2]` | amount of LP tokens burned|
+|`lpBurned`| `uint256` | amount of LP tokens burned |
 
 ### `setAdminFee` {#itenderswapsetadminfeeuint256 }
 

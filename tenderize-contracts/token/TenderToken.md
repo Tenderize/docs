@@ -55,7 +55,7 @@ Initilize the TenderToken Contract
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`a`| `string` | boolean value indicating whether the init succeeded.|
+|``| `bool` | boolean value indicating whether the init succeeded. |
 
 ### `decimals` {#itendertokendecimals }
 
@@ -71,7 +71,7 @@ The number of decimals the TenderToken uses.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`decimals`| `` | the number of decimals for getting user representation of a token amount.|
+|``| `uint8` | the number of decimals for getting user representation of a token amount. |
 
 ### `totalSupply` {#itendertokentotalsupply }
 
@@ -87,7 +87,7 @@ Note: Always equals to `_getTotalPooledTokens()` since token amount is pegged to
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`totalSupply`| `` | total supply|
+|``| `uint256` | total supply |
 
 ### `getTotalPooledTokens` {#itendertokengettotalpooledtokens }
 
@@ -103,7 +103,7 @@ Note: The sum of all Tokens balances in the protocol, equals to the total supply
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`totalPooledTokens`| `` | total amount of pooled tokens|
+|``| `uint256` | total amount of pooled tokens |
 
 ### `getTotalShares` {#itendertokengettotalshares }
 
@@ -119,7 +119,7 @@ Note: The sum of all accounts' shares can be an arbitrary number, therefore it i
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`totalShares`| `` | total amount of shares|
+|``| `uint256` | total amount of shares |
 
 ### `balanceOf` {#itendertokenbalanceofaddress }
 
@@ -142,7 +142,7 @@ Note: Balances are dynamic and equal the `_account`'s share in the amount of the
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`balance`| `address` | token balance of `_account`|
+|``| `uint256` | token balance of `_account` |
 
 ### `sharesOf` {#itendertokensharesofaddress }
 
@@ -165,7 +165,7 @@ The amount of shares owned by an account
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`shares`| `address` | the amount of shares owned by `_account`.|
+|``| `uint256` | the amount of shares owned by `_account`. |
 
 ### `allowance` {#itendertokenallowanceaddressaddress }
 
@@ -191,7 +191,7 @@ Note: This value changes when `approve` or `transferFrom` is called.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`allowance`| `address` | amount '_spender' is allowed to spend from '_owner'|
+|``| `uint256` | amount '_spender' is allowed to spend from '_owner' |
 
 ### `tokensToShares` {#itendertokentokenstosharesuint256 }
 
@@ -214,7 +214,7 @@ The amount of shares that corresponds to `_tokens` protocol-controlled Tokens.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`shares`| `uint256` | nominal amount of shares the tokens represent|
+|``| `uint256` | nominal amount of shares the tokens represent |
 
 ### `sharesToTokens` {#itendertokensharestotokensuint256 }
 
@@ -237,7 +237,7 @@ The amount of tokens that corresponds to `_shares` token shares.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`tokens`| `uint256` | the amount of tokens represented by the shares|
+|``| `uint256` | the amount of tokens represented by the shares |
 
 ### `transfer` {#itendertokentransferaddressuint256 }
 
@@ -262,7 +262,7 @@ Note: Emits a `Transfer` event. Requirements: - `_recipient` cannot be the zero 
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`success`| `address` | a boolean value indicating whether the operation succeeded. |
+|``| `bool` | a boolean value indicating whether the operation succeeded.  |
 
 ### `approve` {#itendertokenapproveaddressuint256 }
 
@@ -287,7 +287,7 @@ Note: Emits an `Approval` event. Requirements: - `_spender` cannot be the zero a
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`success`| `address` | a boolean value indicating whether the operation succeeded. |
+|``| `bool` | a boolean value indicating whether the operation succeeded.  |
 
 ### `transferFrom` {#itendertokentransferfromaddressaddressuint256 }
 
@@ -313,7 +313,7 @@ Note: Emits a `Transfer` event. Emits an `Approval` event indicating the updated
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`success`| `address` | a boolean value indicating whether the operation succeeded. |
+|``| `bool` | a boolean value indicating whether the operation succeeded.  |
 
 ### `increaseAllowance` {#itendertokenincreaseallowanceaddressuint256 }
 
@@ -338,7 +338,7 @@ Note: This is an alternative to `approve` that can be used as a mitigation for p
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`success`| `address` | a boolean value indicating whether the operation succeeded. |
+|``| `bool` | a boolean value indicating whether the operation succeeded.  |
 
 ### `decreaseAllowance` {#itendertokendecreaseallowanceaddressuint256 }
 
@@ -363,7 +363,7 @@ Note: This is an alternative to `approve` that can be used as a mitigation for p
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`success`| `address` | a boolean value indicating whether the operation succeeded. |
+|``| `bool` | a boolean value indicating whether the operation succeeded.  |
 
 ### `mint` {#itendertokenmintaddressuint256 }
 
@@ -388,7 +388,7 @@ Note: Only callable by contract owner Calculates the amount of shares to create 
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`success`| `address` | a boolean value indicating whether the operation succeeded. |
+|``| `bool` | a boolean value indicating whether the operation succeeded.  |
 
 ### `burn` {#itendertokenburnaddressuint256 }
 
@@ -413,7 +413,7 @@ Note: Only callable by contract owner Calculates the amount of shares to destroy
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`success`| `address` | a boolean value indicating whether the operation succeeded. |
+|``| `bool` | a boolean value indicating whether the operation succeeded.  |
 
 ### `setTotalStakedReader` {#itendertokensettotalstakedreadercontractitotalstakedreader }
 

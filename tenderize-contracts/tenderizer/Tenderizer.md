@@ -124,7 +124,7 @@ Note: unstake from the default address. If '_amount' is 0, unstake the entire am
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`unstakeLockID`| `uint256` | unstake lockID generated for unstake |
+|`unstakeLockID`| `uint256` | unstake lockID generated for unstake  |
 
 ### `withdraw` {#itenderizerwithdrawuint256 }
 
@@ -170,7 +170,7 @@ Note: Resets pendingFees. Fees claimed are added to total staked.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `` | Amount of protocol fees collected |
+|`amount`| `uint256` | Amount of protocol fees collected  |
 
 ### `collectLiquidityFees` {#itenderizercollectliquidityfees }
 
@@ -186,7 +186,7 @@ Note: Resets pendingFees. Fees claimed are added to total staked.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `` | Amount of liquidity fees collected |
+|`amount`| `uint256` | Amount of liquidity fees collected  |
 
 ### `totalStakedTokens` {#itenderizertotalstakedtokens }
 
@@ -202,7 +202,7 @@ Total Staked Tokens returns the total amount of underlying tokens staked by this
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`totalStaked`| `` | total amount staked by this Tenderizer|
+|`totalStaked`| `uint256` | total amount staked by this Tenderizer |
 
 ### `calcDepositOut` {#itenderizercalcdepositoutuint256 }
 
@@ -218,7 +218,7 @@ Note: used by controller to calculate tokens to be minted before depositing. to 
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`depositOut`| `uint256` | number of tokens staked for `amountIn`. |
+|`depositOut`| `uint256` | number of tokens staked for `amountIn`.  |
 
 ### `pendingFees` {#itenderizerpendingfees }
 
@@ -234,7 +234,7 @@ Returns the amount of pending protocool fees since last claiming..
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `` | the amount of fees pending since last claim|
+|`amount`| `uint256` | the amount of fees pending since last claim |
 
 ### `pendingLiquidityFees` {#itenderizerpendingliquidityfees }
 
@@ -250,7 +250,7 @@ Returns the amount of pending liquidity provider fees since last claiming.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `` | the amount of liqudity fees pending since last claim|
+|`amount`| `uint256` | the amount of liqudity fees pending since last claim |
 
 ### `execute` {#itenderizerexecuteaddressuint256bytes }
 
@@ -376,8 +376,14 @@ No description
   )
 ```
 
+Deposit gets emitted when an accounts deposits underlying tokens.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`from`| `address` | the account that deposited |
+|`amount`| `uint256` | the amount of tokens deposited|
 
 ### `Stake` {#itenderizerstakeaddressuint256 }
 
@@ -386,8 +392,15 @@ No description
   )
 ```
 
+Stake gets emitted when funds are staked/delegated from the Tenderizer contract
+into the underlying protocol.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`node`| `address` | the address the funds are staked to |
+|`amount`| `uint256` | the amount staked|
 
 ### `Unstake` {#itenderizerunstakeaddressaddressuint256uint256 }
 
@@ -396,8 +409,16 @@ No description
   )
 ```
 
+Unstake gets emitted when an account burns TenderTokens to unlock
+tokens staked through the Tenderizer
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`from`| `address` | the account that unstaked |
+|`node`| `address` | the node in the underlying token from which tokens are unstaked |
+|`amount`| `uint256` | the amount unstaked|
 
 ### `Withdraw` {#itenderizerwithdrawaddressuint256uint256 }
 
@@ -406,8 +427,16 @@ No description
   )
 ```
 
+Withdraw gets emitted when an account withdraws tokens that have been
+succesfully unstaked and thus unlocked for withdrawal.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`from`| `address` | the account withdrawing tokens |
+|`amount`| `uint256` | the amount being withdrawn |
+|`unstakeLockID`| `uint256` | the unstake lock ID being consumed|
 
 ### `RewardsClaimed` {#itenderizerrewardsclaimedint256uint256uint256 }
 
@@ -416,8 +445,16 @@ No description
   )
 ```
 
+RewardsClaimed gets emitted when the Tenderizer processes staking rewards (or slashing)
+from the underlying protocol.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`stakeDiff`| `int256` | the stake difference since the last event, can be negative in case slashing occured |
+|`currentPrincipal`| `uint256` | TVL after claiming rewards |
+|`oldPrincipal`| `uint256` | TVL before claiming rewards|
 
 ### `ProtocolFeeCollected` {#itenderizerprotocolfeecollecteduint256 }
 
@@ -426,8 +463,14 @@ No description
   )
 ```
 
+ProtocolFeeCollected gets emitted when the treasury claims its outstanding
+protocol fees.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`amount`| `uint256` | the amount of fees claimed (in TenderTokens)|
 
 ### `LiquidityFeeCollected` {#itenderizerliquidityfeecollecteduint256 }
 
@@ -436,8 +479,13 @@ No description
   )
 ```
 
+LiquidityFeeCollected gets emitted when liquidity provider fees are moved to the TenderFarm.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`amount`| `uint256` | the amount of fees moved for farming|
 
 ### `GovernanceUpdate` {#itenderizergovernanceupdatestring }
 
@@ -446,6 +494,11 @@ No description
   )
 ```
 
+GovernanceUpdate gets emitted when a parameter on the Tenderizer gets updated.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`param`| `string` | the parameter that got updated|
 

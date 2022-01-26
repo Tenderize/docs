@@ -167,7 +167,7 @@ Check available rewards for an account.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `address` | rewards for the provided account address.|
+|`amount`| `uint256` | rewards for the provided account address. |
 
 ### `stakeOf` {#itenderfarmstakeofaddress }
 
@@ -190,7 +190,7 @@ Check stake for an account.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`amount`| `address` | LP tokens deposited for address|
+|`amount`| `uint256` | LP tokens deposited for address |
 
 ### `totalStake` {#itenderfarmtotalstake }
 
@@ -206,7 +206,7 @@ Return the total amount of LP tokens staked in this farm.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`stake`| `` | total amount of LP tokens staked|
+|`stake`| `uint256` | total amount of LP tokens staked |
 
 ### `nextTotalStake` {#itenderfarmnexttotalstake }
 
@@ -223,7 +223,7 @@ for the next reward epoch.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`nextStake`| `` | LP Tokens staked for next round|
+|`nextStake`| `uint256` | LP Tokens staked for next round |
 
 ### `setTenderizer` {#itenderfarmsettenderizercontractitenderizer }
 
@@ -253,8 +253,14 @@ Changes the tenderizer of the contract
   )
 ```
 
+Farm gets emitted when an account stakes LP tokens.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`account`| `address` | the account for which LP tokens were staked |
+|`amount`| `uint256` | the amount of LP tokens staked|
 
 ### `Unfarm` {#itenderfarmunfarmaddressuint256 }
 
@@ -263,8 +269,14 @@ No description
   )
 ```
 
+Unfarm gets emitted when an account unstakes LP tokens.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`account`| `address` | the account for which LP tokens were unstaked |
+|`amount`| `uint256` | the amount of LP tokens unstaked|
 
 ### `Harvest` {#itenderfarmharvestaddressuint256 }
 
@@ -273,8 +285,15 @@ No description
   )
 ```
 
+Harvest gets emitted when an accounts harvests outstanding
+rewards.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`account`| `address` | the account which harvested rewards |
+|`amount`| `uint256` | the amount of rewards harvested|
 
 ### `RewardsAdded` {#itenderfarmrewardsaddeduint256 }
 
@@ -283,6 +302,12 @@ No description
   )
 ```
 
+RewardsAdded gets emitted when new rewards are added
+and a new epoch begins
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`amount`| `uint256` | amount of rewards that were addedd|
 
