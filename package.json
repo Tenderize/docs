@@ -10,7 +10,8 @@
     "npm": "^3.0.0"
   },
   "scripts": {
-    "postinstall": "doxygen --download"
+    "postinstall": "doxygen --download",
+    "generate": "node generate-eth-docs.js"
   },
   "devDependencies": {
     "doxygen": "0.3.2",

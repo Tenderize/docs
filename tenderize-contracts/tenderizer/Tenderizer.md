@@ -108,7 +108,7 @@ Note: If '_node' is not specified, stake towards the default address. If '_amoun
 ```solidity
   function unstake(
     uint256 _amount
-  ) external returns (uint256 _unstakeLockID)
+  ) external returns (uint256 unstakeLockID)
 ```
 
 Unstake '_amount' of tokens from '_account'.
@@ -124,7 +124,7 @@ Note: unstake from the default address. If '_amount' is 0, unstake the entire am
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_unstakeLockID`| `uint256` | unstake lockID generated for unstake |
+|`unstakeLockID`| `uint256` | unstake lockID generated for unstake |
 
 ### `withdraw` {#itenderizerwithdrawuint256 }
 
@@ -159,7 +159,7 @@ any leftover token balance. Process Tender protocol fees if revenue is positive.
 ### `collectFees` {#itenderizercollectfees }
 
 ```solidity
-  function collectFees() external returns (uint256 _feesCollected)
+  function collectFees() external returns (uint256 feesCollected)
 ```
 
 Collect fees pulls any pending governance fees from the Tenderizer to the governance treasury.
@@ -170,12 +170,12 @@ Note: Resets pendingFees. Fees claimed are added to total staked.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_feesCollected`| `` | Amount of protocol fees collected |
+|`feesCollected`| `` | Amount of protocol fees collected |
 
 ### `collectLiquidityFees` {#itenderizercollectliquidityfees }
 
 ```solidity
-  function collectLiquidityFees() external returns (uint256 _liquidtyFeesCollected)
+  function collectLiquidityFees() external returns (uint256 liquidtyFeesCollected)
 ```
 
 Collect Liquidity fees pulls any pending LP fees from the Tenderizer to TenderFarm.
@@ -186,12 +186,12 @@ Note: Resets pendingFees. Fees claimed are added to total staked.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_liquidtyFeesCollected`| `` | Amount of liquidity fees collected |
+|`liquidtyFeesCollected`| `` | Amount of liquidity fees collected |
 
 ### `totalStakedTokens` {#itenderizertotalstakedtokens }
 
 ```solidity
-  function totalStakedTokens() external returns (uint256 _stakedTokens)
+  function totalStakedTokens() external returns (uint256 _totalStakedTokens)
 ```
 
 Total Staked Tokens returns the total amount of underlying tokens staked by this Tenderizer.
@@ -202,12 +202,12 @@ Total Staked Tokens returns the total amount of underlying tokens staked by this
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_stakedTokens`| `` | total amount staked by this Tenderizer|
+|`_totalStakedTokens`| `` | total amount staked by this Tenderizer|
 
 ### `calcDepositOut` {#itenderizercalcdepositoutuint256 }
 
 ```solidity
-  function calcDepositOut() external returns (uint256 _depositOut)
+  function calcDepositOut() external returns (uint256 depositOut)
 ```
 
 Returns the number of tenderTokens to be minted for amountIn deposit.
@@ -218,7 +218,7 @@ Note: used by controller to calculate tokens to be minted before depositing. to 
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_depositOut`| `uint256` | number of tokens staked for depositIn. |
+|`depositOut`| `uint256` | number of tokens staked for depositIn. |
 
 ### `pendingFees` {#itenderizerpendingfees }
 
@@ -229,6 +229,11 @@ Note: used by controller to calculate tokens to be minted before depositing. to 
 No description
 
 
+#### Return Values:
+
+| Name                           | Type          | Description                                                                  |
+| :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
+|`_pendingFees`| `` | amount of fees pending since last claim|
 
 ### `pendingLiquidityFees` {#itenderizerpendingliquidityfees }
 
@@ -239,6 +244,11 @@ No description
 No description
 
 
+#### Return Values:
+
+| Name                           | Type          | Description                                                                  |
+| :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
+|`_pendingLiquidityFees`| `` | amount of liqudity fees pending since last claim|
 
 ### `execute` {#itenderizerexecuteaddressuint256bytes }
 

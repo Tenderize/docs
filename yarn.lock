@@ -463,6 +463,13 @@ escape-string-regexp@^1.0.2:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
+eth-permit@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/eth-permit/-/eth-permit-0.2.1.tgz#360bbf33bfeb70ad212e9cfa820370e8f827bdff"
+  integrity sha512-+a91Il8JDsKXnib6a5CWEwBc9OOR93IYM1GRGlcnEa+NwMHkWLg4P8lyEHnUmoMVfjutoQTz8wnEWr5Y+k3QOQ==
+  dependencies:
+    utf8 "^3.0.0"
+
 extend@~3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
@@ -1270,13 +1277,14 @@ tar-stream@^1.5.2:
     to-buffer "^1.1.1"
     xtend "^4.0.0"
 
-"tender-core@https://github.com/tenderize/tender-core#rr/comments":
+"tender-core@https://github.com/tenderize/tender-core":
   version "0.1.0"
-  resolved "https://github.com/tenderize/tender-core#031788fc86754cff0b6590178a07755d924ae515"
+  resolved "https://github.com/tenderize/tender-core#529d721e2a34ad3fd138c8a196a112207d4fcf0a"
   dependencies:
     "@openzeppelin/contracts" "^4.0.0"
     "@openzeppelin/contracts-upgradeable" "^4.3.3"
     "@uniswap/v3-periphery" "^1.2.0"
+    eth-permit "^0.2.1"
 
 through@^2.3.8:
   version "2.3.8"
@@ -1365,6 +1373,11 @@ universalify@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-2.0.0.tgz#75a4984efedc4b08975c5aeb73f530d02df25717"
   integrity sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==
+
+utf8@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/utf8/-/utf8-3.0.0.tgz#f052eed1364d696e769ef058b183df88c87f69d1"
+  integrity sha512-E8VjFIQ/TyQgp+TZfS6l8yp/xWppSAHzidGiRrqe4bK4XP9pTRyKFgGJpO3SN7zdX4DeomTrwaseCHovfpFcqQ==
 
 util-deprecate@~1.0.1:
   version "1.0.2"

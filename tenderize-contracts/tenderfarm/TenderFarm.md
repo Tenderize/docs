@@ -103,7 +103,7 @@ Note: '_amount' needs to be approved for the 'TenderFarm' to transfer. staked to
 
 ```solidity
   function unfarm(
-    uint256 _amount
+    uint256 amount
   ) external
 ```
 
@@ -114,7 +114,7 @@ Note: '_amount' needs to be approved for the 'TenderFarm' to transfer. harvests 
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`_amount` | `uint256` | amount of liquidity pool tokens to stake|
+|`amount` | `uint256` | amount of liquidity pool tokens to stake|
 
 
 ### `harvest` {#itenderfarmharvest }
@@ -132,7 +132,7 @@ Note: reverts when trying to harvest multiple times if no new rewards have been 
 
 ```solidity
   function addRewards(
-    uint256 _amount
+    uint256 amount
   ) external
 ```
 
@@ -143,7 +143,7 @@ Note: will 'start' a new 'epoch'. only callable by owner.
 
 | Name | Type | Description                                                          |
 | :--- | :--- | :------------------------------------------------------------------- |
-|`_amount` | `uint256` | amount of reward tokens to add|
+|`amount` | `uint256` | amount of reward tokens to add|
 
 
 ### `availableRewards` {#itenderfarmavailablerewardsaddress }
@@ -151,7 +151,7 @@ Note: will 'start' a new 'epoch'. only callable by owner.
 ```solidity
   function availableRewards(
     address _for
-  ) external returns (uint256 _amount)
+  ) external returns (uint256 amount)
 ```
 
 Check available rewards for an address.
@@ -167,14 +167,14 @@ Check available rewards for an address.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_amount`| `address` | rewards for address|
+|`amount`| `address` | rewards for address|
 
 ### `stakeOf` {#itenderfarmstakeofaddress }
 
 ```solidity
   function stakeOf(
     address _of
-  ) external returns (uint256 _amount)
+  ) external returns (uint256 amount)
 ```
 
 Check stake for an address.
@@ -190,7 +190,7 @@ Check stake for an address.
 
 | Name                           | Type          | Description                                                                  |
 | :----------------------------- | :------------ | :--------------------------------------------------------------------------- |
-|`_amount`| `address` | LP tokens deposited for address|
+|`amount`| `address` | LP tokens deposited for address|
 
 ### `totalStake` {#itenderfarmtotalstake }
 
