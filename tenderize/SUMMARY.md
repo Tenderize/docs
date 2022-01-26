@@ -5,9 +5,8 @@
 ## Tenderize Contracts
 
 * Core
-  * [TenderToken](../tenderize-contracts/token/TenderToken.md)
   * [Tenderizer](../tenderize-contracts/tenderizer/Tenderizer.md)
-  * [Controller](../tenderize-contracts/Controller.md)
+  * [TenderToken](../tenderize-contracts/token/TenderToken.md)
 * Liquidity
-  * [TenderSwap](../tenderize-contracts/liquidity/TenderSwap.md)
-  * [TenderFarm](../tenderize-contracts/liquidity/TenderFarm.md)
+  * [TenderSwap](../tenderize-contracts/tenderswap/TenderSwap.md)
+  * [TenderFarm](../tenderize-contracts/tenderfarm/TenderFarm.md)
