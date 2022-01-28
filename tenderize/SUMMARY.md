@@ -1,8 +1,16 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Welcome](README.md)
 
-## Tenderize Contracts
+## Ecosystem
+
+* [community](../ecosystem/community)
+* [Discord](https://discord.gg/WXR5VBttP5)
+* [Twitter](https://twitter.com/tenderize_me)
+* [Medium](https://tenderize.medium.com/)
+
+
+## Contracts
 
 * Core
   * [Tenderizer](../tenderize-contracts/tenderizer/Tenderizer.md)
