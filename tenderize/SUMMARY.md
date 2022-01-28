@@ -1,16 +1,15 @@
 # Table of contents
 
-* [Welcome](README.md)
+* [👋Welcome](README.md)
 
-## Ecosystem
+## 🌱 Ecosystem
 
-* [community](../ecosystem/community)
+* [Community](../ecosystem/community.md)
 * [Discord](https://discord.gg/WXR5VBttP5)
 * [Twitter](https://twitter.com/tenderize_me)
 * [Medium](https://tenderize.medium.com/)
 
-
-## Contracts
+## 📝 Contracts
 
 * Core
   * [Tenderizer](../tenderize-contracts/tenderizer/Tenderizer.md)
