@@ -13,4 +13,4 @@ The community is made up of individuals and entities who are interact with the p
 
 With respect to privacy, all members have the freedom to participate in the form they prefer and on a voluntary basis, allowing for the opportunity to maintain their anonymity.
 
-For Tenderizers to function as a fully autonomous ecosystem, community memebers should take actions for eachother and new members to feel welcomed and recognized.
+For Tenderize to function as a fully autonomous ecosystem, community members should take actions for eachother and new members to feel welcomed and recognized.
