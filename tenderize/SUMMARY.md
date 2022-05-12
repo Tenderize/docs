@@ -17,3 +17,4 @@
 * Liquidity
   * [TenderSwap](../tenderize-contracts/tenderswap/TenderSwap.md)
   * [TenderFarm](../tenderize-contracts/tenderfarm/TenderFarm.md)
+* [Deployed Contract Addresses](../tenderize-contracts/DEPLOYMENTS.md)
