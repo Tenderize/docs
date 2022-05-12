@@ -2,6 +2,13 @@
 
 * [👋Welcome](README.md)
 
+## 🗺️ Guides
+
+* [Staking](../guides/staking.md)
+* [Swapping](../guides/swap.md)
+* [Providing Liquidity](../guides/liquidity.md)
+* [Farming](../guides/farm.md)
+
 ## 🌱 Ecosystem
 
 * [Community](../ecosystem/community.md)
