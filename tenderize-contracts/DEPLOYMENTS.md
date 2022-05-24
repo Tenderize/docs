@@ -38,31 +38,40 @@
 - tMATIC-MATIC-SWAP Token: [0xa4B13F5cd779A3DA03a346A315b544255C862041](https://etherscan.io/address/0xa4B13F5cd779A3DA03a346A315b544255C862041)
 - TenderFarm: [0x128CF6729975D8aD2B9Dc0ac0a093066687acDfD](https://etherscan.io/address/0x128CF6729975D8aD2B9Dc0ac0a093066687acDfD)
 
+#### Audius
+- Audius Token (AUDIO): [0x18aaa7115705e8be94bffebde57af9bfc265b998](https://etherscan.io/address/0x18aaa7115705e8be94bffebde57af9bfc265b998)
+- Tenderizer (Proxy): [0x50DCE4ca01C15188105971339c39DA49C2A0c249](https://etherscan.io/address/0xe07c344cB6a2Af8Fdf1d64c67D4C33a133fE7289)
+- Tenderizer (Implementation): [0x08d35905ae92076ef67209f9238071f3a7646611](https://etherscan.io/address/0x08d35905ae92076ef67209f9238071f3a7646611)
+- TenderToken: [0xc83bAdBF764F957aCc23Bc9E9aAC71c298B07243](https://etherscan.io/address/0xc83bAdBF764F957aCc23Bc9E9aAC71c298B07243)
+- TenderSwap: [0x7de47d1C5b9415877FE6863263F97180117fDaaa](https://etherscan.io/address/0x7de47d1C5b9415877FE6863263F97180117fDaaa)
+- tAUDIO-AUDIO-SWAP Token: [0x531725C57f266743C06E1935a52D6FF84e547DB0](https://etherscan.io/address/0x531725C57f266743C06E1935a52D6FF84e547DB0)
+- TenderFarm: [0x82Dd465436196D8637bDD0Aa4eb6D074325935f2](https://etherscan.io/address/0x82Dd465436196D8637bDD0Aa4eb6D074325935f2)
+
 ## Arbitrum
 
 ### General
 
-- Tenderize Governance Multisig: [0xfc95B135A970AE3FfbeEbf45833A9e7Eb0956860](https://https://arbiscan.io/address/0xfc95B135A970AE3FfbeEbf45833A9e7Eb0956860)
-- Registry: [0x87998e0aC7a75f7bac1d5738C997700b0842a42e](https://https://arbiscan.io/address/0x87998e0aC7a75f7bac1d5738C997700b0842a42e)
-- TenderFarmFactory: [0xDA76172b5c46060b80650324168d67028A2136C3](https://https://arbiscan.io/address/0xDA76172b5c46060b80650324168d67028A2136C3)
-- TenderSwapFactoryV1: [0x20B817eBe4520d9E65814b835BAb55BFDFb4C46c](https://https://arbiscan.io/address/0x20B817eBe4520d9E65814b835BAb55BFDFb4C46c)
+- Tenderize Governance Multisig: [0xfc95B135A970AE3FfbeEbf45833A9e7Eb0956860](https://arbiscan.io/address/0xfc95B135A970AE3FfbeEbf45833A9e7Eb0956860)
+- Registry: [0x87998e0aC7a75f7bac1d5738C997700b0842a42e](https://arbiscan.io/address/0x87998e0aC7a75f7bac1d5738C997700b0842a42e)
+- TenderFarmFactory: [0xDA76172b5c46060b80650324168d67028A2136C3](https://arbiscan.io/address/0xDA76172b5c46060b80650324168d67028A2136C3)
+- TenderSwapFactoryV1: [0x20B817eBe4520d9E65814b835BAb55BFDFb4C46c](https://arbiscan.io/address/0x20B817eBe4520d9E65814b835BAb55BFDFb4C46c)
 
 ### Libraries
 
-- TenderToken: [0x810D161B5f80f493C920FC81d3dE6e340cCAd6ac](https://https://arbiscan.io/address/0x810D161B5f80f493C920FC81d3dE6e340cCAd6ac)
-- TenderFarm: [0xB96652CFbeF04a0da12d03D58e69839B0faAe02D](https://https://arbiscan.io/address/0xB96652CFbeF04a0da12d03D58e69839B0faAe02D)
-- TenderSwap: [0x64978587732A670A76a656ef2EAcb681EaE90C71](https://https://arbiscan.io/address/0x64978587732A670A76a656ef2EAcb681EaE90C71)
-- SwapUtils: [0x8d885fD705517AFC4E7C03FF66b5621de02AEbc5](https://https://arbiscan.io/address/0x8d885fD705517AFC4E7C03FF66b5621de02AEbc5)
-- LiquidityPoolToken: [0xb6e666aFCc6A75acadAfAF09c5669019E97cc15F](https://https://arbiscan.io/address/0xb6e666aFCc6A75acadAfAF09c5669019E97cc15F)
+- TenderToken: [0x810D161B5f80f493C920FC81d3dE6e340cCAd6ac](https://arbiscan.io/address/0x810D161B5f80f493C920FC81d3dE6e340cCAd6ac)
+- TenderFarm: [0xB96652CFbeF04a0da12d03D58e69839B0faAe02D](https://arbiscan.io/address/0xB96652CFbeF04a0da12d03D58e69839B0faAe02D)
+- TenderSwap: [0x64978587732A670A76a656ef2EAcb681EaE90C71](https://arbiscan.io/address/0x64978587732A670A76a656ef2EAcb681EaE90C71)
+- SwapUtils: [0x8d885fD705517AFC4E7C03FF66b5621de02AEbc5](https://arbiscan.io/address/0x8d885fD705517AFC4E7C03FF66b5621de02AEbc5)
+- LiquidityPoolToken: [0xb6e666aFCc6A75acadAfAF09c5669019E97cc15F](https://arbiscan.io/address/0xb6e666aFCc6A75acadAfAF09c5669019E97cc15F)
 
 ### Tenderizers
 
 #### Livepeer
 
-- Livepeer Token (LPT): [0x289ba1701C2F088cf0faf8B3705246331cB8A839](https://https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839)
-- Tenderizer (Proxy): [0x339efC059C6D4Aa50a41F8246a017B57Aa477b60](https://https://arbiscan.io/address/0x339efC059C6D4Aa50a41F8246a017B57Aa477b60)
-- Tenderizer (Implementation): [0x7D84bcBAaf7a22f58103413fb5884b327D899449](https://https://arbiscan.io/address/0x7D84bcBAaf7a22f58103413fb5884b327D899449)
-- TenderToken: [0xfaC38532829fDD744373fdcd4708Ab90fA0c4078](https://https://arbiscan.io/address/0xfaC38532829fDD744373fdcd4708Ab90fA0c4078)
-- TenderSwap: [0x2429fC7082eb517C14946b392b195B181D0b9781](https://https://arbiscan.io/address/0x2429fC7082eb517C14946b392b195B181D0b9781)
-- tLPT-LPT-SWAP Token: [0x6cAbc6e78c1D632b6210EaB71c19889b92376931](https://https://arbiscan.io/address/0x6cAbc6e78c1D632b6210EaB71c19889b92376931)
-- TenderFarm: [0x3FE01e8b62a8E17F296Eb3832504C3D3A49f2209](https://https://arbiscan.io/address/0x3FE01e8b62a8E17F296Eb3832504C3D3A49f2209)
+- Livepeer Token (LPT): [0x289ba1701C2F088cf0faf8B3705246331cB8A839](https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839)
+- Tenderizer (Proxy): [0x339efC059C6D4Aa50a41F8246a017B57Aa477b60](https://arbiscan.io/address/0x339efC059C6D4Aa50a41F8246a017B57Aa477b60)
+- Tenderizer (Implementation): [0x7D84bcBAaf7a22f58103413fb5884b327D899449](https://arbiscan.io/address/0x7D84bcBAaf7a22f58103413fb5884b327D899449)
+- TenderToken: [0xfaC38532829fDD744373fdcd4708Ab90fA0c4078](https://arbiscan.io/address/0xfaC38532829fDD744373fdcd4708Ab90fA0c4078)
+- TenderSwap: [0x2429fC7082eb517C14946b392b195B181D0b9781](https://arbiscan.io/address/0x2429fC7082eb517C14946b392b195B181D0b9781)
+- tLPT-LPT-SWAP Token: [0x6cAbc6e78c1D632b6210EaB71c19889b92376931](https://arbiscan.io/address/0x6cAbc6e78c1D632b6210EaB71c19889b92376931)
+- TenderFarm: [0x3FE01e8b62a8E17F296Eb3832504C3D3A49f2209](https://arbiscan.io/address/0x3FE01e8b62a8E17F296Eb3832504C3D3A49f2209)
