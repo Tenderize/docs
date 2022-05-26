@@ -440,8 +440,7 @@ Remove liquidity from the pool all in one token.
 ```
 
 Remove liquidity from the pool, weighted differently than the
-pool's current balances. Withdraw fee that decays linearly
-over period of 4 weeks since last deposit will apply.
+pool's current balances.
 
 
 #### Parameters:
@@ -554,8 +553,16 @@ Changes the owner of the contract
   )
 ```
 
+Swap gets emitted when an accounts exchanges tokens.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`buyer`| `address` | address of the account initiating the swap |
+|`tokenSold`| `contract IERC20` | address of the swapped token |
+|`amountSold`| `uint256` | amount of tokens swapped |
+|`amountReceived`| `uint256` | amount of tokens received in exchange|
 
 ### `AddLiquidity` {#itenderswapaddliquidityaddressuint2562uint2562uint256uint256 }
 
@@ -564,8 +571,17 @@ No description
   )
 ```
 
+AddLiquidity gets emitted when liquidity is added to the pool.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`provider`| `address` | address of the account providing liquidity |
+|`tokenAmounts`| `uint256[2]` | array of token amounts provided corresponding to pool cardinality of [token0, token1] |
+|`fees`| `uint256[2]` | fees deducted for each of the tokens added corresponding to pool cardinality of [token0, token1] |
+|`invariant`| `uint256` | pool invariant after adding liquidity |
+|`lpTokenSupply`| `uint256` | the lpToken supply after minting|
 
 ### `RemoveLiquidity` {#itenderswapremoveliquidityaddressuint2562uint256 }
 
@@ -574,8 +590,16 @@ No description
   )
 ```
 
+RemoveLiquidity gets emitted when liquidity for both tokens 
+is removed from the pool.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`provider`| `address` | address of the account removing liquidity |
+|`tokenAmounts`| `uint256[2]` | array of token amounts removed corresponding to pool cardinality of [token0, token1] |
+|`lpTokenSupply`| `uint256` | total supply of liquidity pool token after removing liquidity|
 
 ### `RemoveLiquidityOne` {#itenderswapremoveliquidityoneaddressuint256uint256contractierc20uint256 }
 
@@ -584,8 +608,17 @@ No description
   )
 ```
 
+RemoveLiquidityOne gets emitted when single-sided liquidity is removed 
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`provider`| `address` | address of the account removing liquidity |
+|`lpTokenAmount`| `uint256` | amount of liquidity pool tokens burnt |
+|`lpTokenSupply`| `uint256` | total supply of liquidity pool token after removing liquidity  |
+|`tokenReceived`| `contract IERC20` | address of the token for which liquidity was removed |
+|`receivedAmount`| `uint256` | amount of tokens received|
 
 ### `RemoveLiquidityImbalance` {#itenderswapremoveliquidityimbalanceaddressuint2562uint2562uint256uint256 }
 
@@ -594,8 +627,19 @@ No description
   )
 ```
 
+RemoveLiquidityImbalance gets emitted when liquidity is removed weighted differently than the
+pool's current balances.
+with different weights than that of the pool.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`provider`| `address` | address of the the account removing liquidity imbalanced |
+|`tokenAmounts`| `uint256[2]` | array of amounts of tokens being removed corresponding  to pool cardinality of [token0, token1] |
+|`fees`| `uint256[2]` | fees for each of the tokens removed corresponding to pool cardinality of [token0, token1] |
+|`invariant`| `uint256` | pool invariant after removing liquidity |
+|`lpTokenSupply`| `uint256` | total supply of liquidity pool token after removing liquidity|
 
 ### `NewAdminFee` {#itenderswapnewadminfeeuint256 }
 
@@ -604,8 +648,13 @@ No description
   )
 ```
 
+NewAdminFee gets emitted when the admin fee is updated.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`newAdminFee`| `uint256` | admin fee after update|
 
 ### `NewSwapFee` {#itenderswapnewswapfeeuint256 }
 
@@ -614,8 +663,13 @@ No description
   )
 ```
 
+NewSwapFee gets emitted when the swap fee is updated.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`newSwapFee`| `uint256` | swap fee after update|
 
 ### `RampA` {#itenderswaprampauint256uint256uint256uint256 }
 
@@ -624,8 +678,16 @@ No description
   )
 ```
 
+RampA gets emitted when A has started ramping up.
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`oldA`| `uint256` | initial A value |
+|`newA`| `uint256` | target value of A to ramp up to |
+|`initialTime`| `uint256` | ramp start timestamp |
+|`futureTime`| `uint256` | ramp end timestamp|
 
 ### `StopRampA` {#itenderswapstoprampauint256uint256 }
 
@@ -634,6 +696,12 @@ No description
   )
 ```
 
+StopRampA gets emitted when ramping A is stopped manually
 
 No description
+#### Parameters:
+| Name                           | Type          | Description                                    |
+| :----------------------------- | :------------ | :--------------------------------------------- |
+|`currentA`| `uint256` | current value of A |
+|`time`| `uint256` | timestamp of when ramp is stopped|
 
