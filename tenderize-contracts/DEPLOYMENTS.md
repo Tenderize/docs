@@ -70,7 +70,7 @@
 
 - Livepeer Token (LPT): [0x289ba1701C2F088cf0faf8B3705246331cB8A839](https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839)
 - Tenderizer (Proxy): [0x339efC059C6D4Aa50a41F8246a017B57Aa477b60](https://arbiscan.io/address/0x339efC059C6D4Aa50a41F8246a017B57Aa477b60)
-- Tenderizer (Implementation): [0x7D84bcBAaf7a22f58103413fb5884b327D899449](https://arbiscan.io/address/0x7D84bcBAaf7a22f58103413fb5884b327D899449)
+- Tenderizer (Implementation): [0x17337C1A93aAa9512110dC9FDd633b54123BbD3b](https://arbiscan.io/address/0x17337C1A93aAa9512110dC9FDd633b54123BbD3b)
 - TenderToken: [0xfaC38532829fDD744373fdcd4708Ab90fA0c4078](https://arbiscan.io/address/0xfaC38532829fDD744373fdcd4708Ab90fA0c4078)
 - TenderSwap: [0x2429fC7082eb517C14946b392b195B181D0b9781](https://arbiscan.io/address/0x2429fC7082eb517C14946b392b195B181D0b9781)
 - tLPT-LPT-SWAP Token: [0x6cAbc6e78c1D632b6210EaB71c19889b92376931](https://arbiscan.io/address/0x6cAbc6e78c1D632b6210EaB71c19889b92376931)
