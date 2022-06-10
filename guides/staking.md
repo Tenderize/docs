@@ -16,10 +16,11 @@ When you open the [Tenderize app](https::/tenderize.me), you’ll immediately be
 
 Currently, there are two tokens you can stake:
 
-Livepeer (LPT) on Arbitrum - 13.77% APY
-Polygon (MATIC) on Ethereum - 6.03% APY
+- Livepeer (LPT) on Arbitrum
+- Polygon (MATIC) on Ethereum
+- The Graph (GRT) on Ethereum
 
-Each staking option has a different APY, meaning the total return you can expect with the compounding effect after a year. Very soon, we’ll introduce two more tokens, GRT and AUDIO. 
+Each staking option has a different APY, meaning the total return you can expect with the compounding effect after a year.
 
 ### Connect your wallet
 
