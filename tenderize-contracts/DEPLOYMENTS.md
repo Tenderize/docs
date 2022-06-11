@@ -40,7 +40,7 @@
 
 #### Audius
 - Audius Token (AUDIO): [0x18aaa7115705e8be94bffebde57af9bfc265b998](https://etherscan.io/address/0x18aaa7115705e8be94bffebde57af9bfc265b998)
-- Tenderizer (Proxy): [0x50DCE4ca01C15188105971339c39DA49C2A0c249](https://etherscan.io/address/0xe07c344cB6a2Af8Fdf1d64c67D4C33a133fE7289)
+- Tenderizer (Proxy): [0x50DCE4ca01C15188105971339c39DA49C2A0c249](https://etherscan.io/address/0x50DCE4ca01C15188105971339c39DA49C2A0c249)
 - Tenderizer (Implementation): [0x08d35905ae92076ef67209f9238071f3a7646611](https://etherscan.io/address/0x08d35905ae92076ef67209f9238071f3a7646611)
 - TenderToken: [0xc83bAdBF764F957aCc23Bc9E9aAC71c298B07243](https://etherscan.io/address/0xc83bAdBF764F957aCc23Bc9E9aAC71c298B07243)
 - TenderSwap: [0x7de47d1C5b9415877FE6863263F97180117fDaaa](https://etherscan.io/address/0x7de47d1C5b9415877FE6863263F97180117fDaaa)
