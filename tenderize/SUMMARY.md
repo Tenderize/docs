@@ -9,6 +9,10 @@
 * [Providing Liquidity](../guides/liquidity.md)
 * [Farming](../guides/farm.md)
 
+## 🎒 Resources
+
+* [Tenderize Risk Management](../resources/risk-management.md)
+
 ## 🌱 Ecosystem
 
 * [Community](../ecosystem/community.md)
