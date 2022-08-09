@@ -21,7 +21,7 @@
 * [Medium](https://tenderize.medium.com/)
 
 ## 📝 Contracts
-
+* [Audit](../tenderize-contracts/audit.md)
 * Core
   * [Tenderizer](../tenderize-contracts/tenderizer/Tenderizer.md)
   * [TenderToken](../tenderize-contracts/token/TenderToken.md)
