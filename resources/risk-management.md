@@ -20,21 +20,21 @@ We believe it is important to be transparent about our selection process so that
 4. **Community Involvement:** To measure this, we ask ourselves the following questions:
     1. Is the node operator an active community member?
     2. Does it provide value-added services for the community?
-    3. Does it participate in governance proposals, community discussions, and/ or meetups?
+    3. Does it participate in governance proposals, community discussions, and/or meetups?
     
 
 Leveraging each of these four components informs our overall view and permits us to choose node operators with strong reputations that maintain highly performative infrastructure and offer competitive returns to Tenderize stakers.
 
 ### Important Metrics
 
-To track these criteria and give statistical insight into performance we have a come up with a concise set of KPI that prioritises profitability and reliability.
+To track these criteria and give statistical insight into performance we have come up with a concise set of KPI that prioritises profitability and reliability.
 
 - APY% : Gives insight into the compounding profitability
 - 30/90 day fee revenue: Insight into active network participation and important for profitability
 - earned fees to total stake ratio: Checks if the node operators is over-performing or underperforming versus its stake, which is a very useful metric since work allocation is often stake-weighted
-- % fees shared to delegators : Fee commission rate
+- % fees shared to delegators: Fee commission rate
 - % inflation rewards shared to delegators: Staking rewards commission rate
-- slashing frequency (if applicable): We want node operators that get slashes as frequently as possible, preferably not at all.
+- slashing frequency (if applicable): We want node operators that get slashed as little as possible, preferably not at all.
 - Commission rates change frequency: Ideally node operators don’t change commission rates frequently and if they do preferably not upwards which is important for stability. Frequent changes could indicate bad behaviour in trying to skim commissions and changing them back in the hope delegators don’t notice.
 
 ## Operational Security
@@ -80,6 +80,6 @@ Good software development practices lead to better software. Each change to the 
 
 - There is a possibility of being slashed but as of to date there have been no such events in the Audius network. Slashing can occur by committee and penalties are decided on a case-by-case basis.
 
-**If Tenderize Liquidity Pools have insufficient liquidity to exchange tASSET for ASSET, w what alternatives exist for me to redeem my tASSET for the staked asset on a 1:1 exchange rate?**
+**If Tenderize Liquidity Pools have insufficient liquidity to exchange tASSET for ASSET, what alternatives exist for me to redeem my tASSET for the staked asset on a 1:1 exchange rate?**
 
 The TenderSwap liquidity pools created by Tenderize offer users instant liquidity for those that don’t want to wait the requisite unbonding period. During times of increased volatility, the liquidity pools may not have sufficient supply to support the demand. Users can always unbond their tokens and wait to receive their assets once the unbonding period has elapsed. Delegated stake is always safe and users will always be able to withdraw their tASSETS in exchange for the underlying asset.
