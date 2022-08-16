@@ -51,7 +51,7 @@
 
 ### General
 
-- Tenderize Governance Multisig: [0xfc95B135A970AE3FfbeEbf45833A9e7Eb0956860](https://arbiscan.io/address/0xfc95B135A970AE3FfbeEbf45833A9e7Eb0956860)
+- Tenderize Governance Multisig: [0xc1cFab553835D74717c4499793EEa6Ef198A3031](https://arbiscan.io/address/0xc1cFab553835D74717c4499793EEa6Ef198A3031)
 - Registry: [0x87998e0aC7a75f7bac1d5738C997700b0842a42e](https://arbiscan.io/address/0x87998e0aC7a75f7bac1d5738C997700b0842a42e)
 - TenderFarmFactory: [0xDA76172b5c46060b80650324168d67028A2136C3](https://arbiscan.io/address/0xDA76172b5c46060b80650324168d67028A2136C3)
 - TenderSwapFactoryV1: [0x20B817eBe4520d9E65814b835BAb55BFDFb4C46c](https://arbiscan.io/address/0x20B817eBe4520d9E65814b835BAb55BFDFb4C46c)
