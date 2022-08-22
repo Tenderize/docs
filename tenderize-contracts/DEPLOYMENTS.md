@@ -2,13 +2,14 @@
 
 ## Ethereum
 
+Subgraph: [https://thegraph.com/hosted-service/subgraph/tenderize/tenderize-ethereum](https://thegraph.com/hosted-service/subgraph/tenderize/tenderize-ethereum)
+
 ### General
 
 - Tenderize Governance Multisig: [0x5542b58080FEE48dBE6f38ec0135cE9011519d96](https://etherscan.io/address/0x5542b58080FEE48dBE6f38ec0135cE9011519d96)
 - Registry: [0x2c2f492FAe8BD9fA1F68A3278Db767BF75A7D221](https://etherscan.io/address/0x2c2f492FAe8BD9fA1F68A3278Db767BF75A7D221)
 - TenderFarmFactory: [0x64Cc4DaE4972Ce88d6d9722c25C67f8f85acDa6d](https://etherscan.io/address/0x64Cc4DaE4972Ce88d6d9722c25C67f8f85acDa6d)
 - TenderSwapFactoryV1: [0x98DAf5786d8bFD524620CBeeBa25C9B4b5015F52](https://etherscan.io/address/0x98DAf5786d8bFD524620CBeeBa25C9B4b5015F52)
-
 
 ### Libraries
 
@@ -21,6 +22,7 @@
 ### Tenderizers
 
 #### Graph
+
 - Graph Token (GRT): [0xc944e90c64b2c07662a292be6244bdf05cda44a7](https://etherscan.io/address/0xc944e90c64b2c07662a292be6244bdf05cda44a7)
 - Tenderizer (Proxy): [0xe66F3ab2f5621FE12ebf37754E1Af6d05b329A07](https://etherscan.io/address/0xe66F3ab2f5621FE12ebf37754E1Af6d05b329A07)
 - Tenderizer (Implementation): [0xe11Bd910842581Ef00dfD2fCdF2f9d7e39d819bf](https://etherscan.io/address/0xe11Bd910842581Ef00dfD2fCdF2f9d7e39d819bf)
@@ -30,6 +32,7 @@
 - TenderFarm: [0xb27DC46D1aF96c998cFF05B99c081b54b19d4b6F](https://etherscan.io/address/0xb27DC46D1aF96c998cFF05B99c081b54b19d4b6F)
 
 #### Matic
+
 - Matic Token (MATIC): [0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0](https://etherscan.io/address/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0)
 - Tenderizer (Proxy): [0xe07c344cB6a2Af8Fdf1d64c67D4C33a133fE7289](https://etherscan.io/address/0xe07c344cB6a2Af8Fdf1d64c67D4C33a133fE7289)
 - Tenderizer (Implementation): [0x762B75B8B9EE9b8599ce1C799bB442b984125f29](https://etherscan.io/address/0x762B75B8B9EE9b8599ce1C799bB442b984125f29)
@@ -39,6 +42,7 @@
 - TenderFarm: [0x128CF6729975D8aD2B9Dc0ac0a093066687acDfD](https://etherscan.io/address/0x128CF6729975D8aD2B9Dc0ac0a093066687acDfD)
 
 #### Audius
+
 - Audius Token (AUDIO): [0x18aaa7115705e8be94bffebde57af9bfc265b998](https://etherscan.io/address/0x18aaa7115705e8be94bffebde57af9bfc265b998)
 - Tenderizer (Proxy): [0x50DCE4ca01C15188105971339c39DA49C2A0c249](https://etherscan.io/address/0x50DCE4ca01C15188105971339c39DA49C2A0c249)
 - Tenderizer (Implementation): [0x08d35905ae92076ef67209f9238071f3a7646611](https://etherscan.io/address/0x08d35905ae92076ef67209f9238071f3a7646611)
@@ -48,6 +52,8 @@
 - TenderFarm: [0x82Dd465436196D8637bDD0Aa4eb6D074325935f2](https://etherscan.io/address/0x82Dd465436196D8637bDD0Aa4eb6D074325935f2)
 
 ## Arbitrum
+
+Subgraph: [https://thegraph.com/hosted-service/subgraph/tenderize/tenderize-arbitrum](https://thegraph.com/hosted-service/subgraph/tenderize/tenderize-arbitrum)
 
 ### General
 
