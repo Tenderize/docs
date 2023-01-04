@@ -20,17 +20,17 @@ You can now choose the amount of the original token and the amount of the Tender
 
 Once you’re ready, click on the “Allow Tenderize to spend token” and confirm the transaction on your wallet (be aware of gas fees). 
 
-Now, you can effectively add liquidity to the pool by clicking “Add Liquidity". In return you will receive an amount of liquidity pool tokens (e.g. tLPT-LPT-SWAP) that represent your deposited liquidity.
+Now, you can effectively add liquidity to the pool by clicking “Add Liquidity". In return you will receive an amount of liquidity pool tokens (e.g. tLPT-SWAP) that represents your deposited liquidity.
 
 ## Removing Liquidity
 
-You can also withdraw your deposited liquidity by returning your the liquidity pool tokens you received from it. To do so, go to the "Swap" tab on the [Tenderize app](https://tenderize.me) and click "Remove Liquidity".
+You can also withdraw your deposited liquidity by returning you the liquidity pool tokens you received from it. To do so, go to the "Swap" tab on the [Tenderize app](https://tenderize.me) and click "Remove Liquidity".
 
-Here you can choose between "Multi asset" and "Single asset". Multi asset will give you back both the original tokens and TenderTokens relative to the balances of the liquidity pool. With Single asset you can choose either one token to receive back, but note that this will incur price slippage.
+Here you can choose between "Multi asset" and "Single asset". Multi asset will give you back both the original tokens and TenderTokens relative to the balances of the liquidity pool. With Single asset, you can choose either one token to receive back, but note that this will incur in price slippage.
 
 ![remove liquidity](https://i.imgur.com/9yrt7WO.png)
 
-Once you've selected your withdrawal type you can enter an amount and the application will show you the amount of tokens you will receive back. Once you're ready, click "Remove Liquidity" and confirm the transaction in your wallet.
+Once you've selected your withdrawal type, you can enter an amount and the application will show you the amount of tokens you will receive back. Once you're ready, click "Remove Liquidity" and confirm the transaction in your wallet.
 
 ## A note on price slippage and impermanent loss
 
