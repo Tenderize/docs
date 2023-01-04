@@ -3,7 +3,7 @@ description: Welcome! This is where you will find all the information you hope t
 ---
 # 👋 Welcome
 
-**Tenderize (🥩,🔨)** is a liquid staking protocol that connects web3 infrastructure protocols and their economics with DeFi. Easily earn rewards on your staked assets without lockups and use them acoss the DeFi ecosystem.
+**Tenderize (🥩,🔨)** is a liquid staking protocol that connects web3 infrastructure protocols and their economics with DeFi. Easily earn rewards on your staked assets without lockups and use them across the DeFi ecosystem.
 
 * [Tenderize website](https://tenderize.me/)
 * Check out the [Tenderize blog](https://tenderize.medium.com/)
