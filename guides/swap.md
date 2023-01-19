@@ -1,6 +1,6 @@
 # Using TenderSwap
 
-Once you gain TenderTokens and start earning staking rewards, you can easily convert them back for the original assets using TenderSwap, for example tenderLPT for LPT. To do this select the "Swap" tab in the Tenderizer app.
+Once you gain TenderTokens and start earning staking rewards, you can easily convert them back for the original assets using TenderSwap, for example tLPT (tenderLPT) for LPT. To do this select the "Swap" tab in the Tenderize app.
 
 Here you can enter an amount to swap or switch between the TenderToken and the original asset using the "🔄" button.
 
