@@ -4,9 +4,9 @@ Once that you received Liquidity Pool tokens from providing liquidity to the Ten
 
 ## What is yield farming?
 
-Yield farming is another opportunity in the DeFi ecosystem to earn on top of your original holdings and on  top of your derivatives (e.g., TenderTokens).
+Yield farming is another opportunity in the DeFi ecosystem to earn additional rewards on top of your staking rewards from the TenderTokens.
 
-Farming consists of earning a portion of a protocol’s revenue on top of trading fees since you’re providing liquidity by allocating your share of SWAP tokens in the TenderFarm.
+Farming consists of earning a portion of the revenue made from trading fees for providing liquidity by farming SWAP tokens in the TenderFarm.
 
 ## How to Farm on Tenderize
 
@@ -18,7 +18,7 @@ To begin your farming experience on Tenderize, click on the “Farm” button an
 
 ![farm](https://i.imgur.com/TKeY2MB.png)
 
-Once you start to receive rewards, you can farm them and earn automatically compounding TenderToken rewards which you can withdraw by clicking the “Harvest” button.
+Once you start to receive rewards, you can farm them and earn automatically compounding TenderToken rewards, which you can withdraw by clicking the “Harvest” button.
 
 ![harvest](https://i.imgur.com/zZQLUT5.png)
 
